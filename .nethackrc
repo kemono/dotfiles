@@ -1,0 +1,8 @@
+### nethack option file
+# start
+
+# play
+OPTIONS=color
+OPTIONS=hilite_pet
+OPTIONS=hilite_pile
+OPTIONS=pickup_thrown

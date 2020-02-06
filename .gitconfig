@@ -1,0 +1,18 @@
+[user]
+	email = furry@kemono.app
+	name = kemono
+
+[core]
+	editor = vi
+	precomposeunicode = true
+	quotepath = false
+
+[alias]
+	tree = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	graph = log --graph --decorate --oneline
+
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
