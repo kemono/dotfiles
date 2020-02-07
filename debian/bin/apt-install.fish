@@ -49,6 +49,7 @@ mplayer \
 ncurses-dev \
 nkf \
 nmap \
+npm \
 pkg-config \
 pv \
 python3-pip \
