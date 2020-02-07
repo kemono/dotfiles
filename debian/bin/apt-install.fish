@@ -15,6 +15,7 @@ cpulimit \
 curl \
 default-jdk \
 default-jre \
+dnsutils \
 ffmpeg \
 fish \
 flex \
