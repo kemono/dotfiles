@@ -12,6 +12,7 @@ mkdir -p ~/projects
 # other tools install
 ~/dotfiles/debian/tool/jnethack.bash
 ~/dotfiles/debian/tool/pokemonsay.fish
+~/dotfiles/debian/tool/bandwhich.fish
 ~/dotfiles/debian/tool/wrk.fish
 ~/dotfiles/debian/tool/chafa.fish
 ~/dotfiles/debian/tool/sdl.fish

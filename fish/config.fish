@@ -10,6 +10,11 @@ or set -gx OMF_PATH "$HOME/.local/share/omf"
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 
+# Path add
+if test -d $HOME/.cargo/bin
+    set -x PATH  $HOME/.cargo/bin $PATH
+end
+
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
@@ -93,6 +98,10 @@ alias l        'ls -AbFhlopX --time-style="+%m/%d %H:%M" -r'
 alias stop-mplayer "killer mplayer"
 
 alias jnethack "~/nh/install/games/jnethack"
+
+if test -f $HOME/.cargo/bin/bandwhich
+    alias bw 'sudo $HOME/.cargo/bin/bandwhich'
+end
 
 ## ------------------------------------------------------------------------
 ##                                   Art
