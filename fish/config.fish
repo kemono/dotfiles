@@ -95,8 +95,6 @@ alias sangetsuki      'reading-novel https://www.aozora.gr.jp/cards/000119/files
 alias sl       'ls'
 alias l        'ls -AbFhlopX --time-style="+%m/%d %H:%M" -r'
 
-alias stop-mplayer "killer mplayer"
-
 alias jnethack "~/nh/install/games/jnethack"
 
 if test -f $HOME/.cargo/bin/bandwhich
