@@ -47,7 +47,7 @@ libx11-dev \
 libxpm-dev \
 lynx \
 make \
-mplayer \
+mpv \
 ncurses-dev \
 nethack-console \
 nkf \

@@ -7,17 +7,11 @@ function play-movie
         set play_speed 1
     end
 
-    youtube-dl 'https://www.youtube.com/watch?v='$argv[1] -o - |\
-    mplayer \
-    -cache 262144 \
-    -framedrop -dr -double \
-    -noar \
-    -nogui \
-    -nojoystick \
-    -nolirc \
-    -nomouseinput \
-    -really-quiet \
-    -speed $play_speed \
-    -vo caca \
-    - -loop 0
+    mpv \
+    --border=no \
+    --loop=yes \
+    --really-quiet=yes \
+    --vo=caca \
+    'https://www.youtube.com/watch?v='$argv[1] \
+    2>/dev/null
 end
