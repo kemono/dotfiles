@@ -3,6 +3,7 @@
 # default package list
 set install_packages \
 anacron \
+angband \
 autoconf \
 automake \
 bison \
@@ -48,6 +49,7 @@ lynx \
 make \
 mplayer \
 ncurses-dev \
+nethack-console \
 nkf \
 nmap \
 npm \
