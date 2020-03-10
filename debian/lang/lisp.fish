@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-mkdir -p /tmp/dotfiles/src
-cd /tmp/dotfiles/src
+mkdir -p ~/tmp/dotfiles/src
+cd ~/tmp/dotfiles/src
 
 set latest_version 1.5.5
 
@@ -20,8 +20,8 @@ end
 
 # install quicklisp
 if [ ! -d ~/quicklisp ]
-    mkdir -p /tmp/dotfiles/src/ql
-    cd /tmp/dotfiles/src/ql
+    mkdir -p ~/tmp/dotfiles/src/ql
+    cd ~/tmp/dotfiles/src/ql
     curl -O http://beta.quicklisp.org/quicklisp.lisp
     echo | sbcl --load quicklisp.lisp --eval "(quicklisp-quickstart:install)"
 end

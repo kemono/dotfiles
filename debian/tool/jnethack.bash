@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mkdir -p /tmp/dotfiles/src
-cd /tmp/dotfiles/src
+mkdir -p ~/tmp/dotfiles/src
+cd ~/tmp/dotfiles/src
 
 wget https://nethack.org/download/3.6.1/nethack-361-src.tgz
 tar zxvf ./nethack-361-src.tgz

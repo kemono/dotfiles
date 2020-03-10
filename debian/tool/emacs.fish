@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
-mkdir -p /tmp/dotfiles/src
-cd /tmp/dotfiles/src
+mkdir -p ~/tmp/dotfiles/src
+cd ~/tmp/dotfiles/src
 git clone --depth 1 -b emacs-26.3 https://github.com/emacs-mirror/emacs.git
 cd emacs
 

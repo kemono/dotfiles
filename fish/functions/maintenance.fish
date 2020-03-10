@@ -20,7 +20,7 @@ function maintenance
     lein ancient upgrade-profiles
 
     # remove unused files (home directory)
-    rm -rf /tmp/dotfiles
+    rm -rf ~/tmp/dotfiles
     rm -rf ~/.bash_login
     rm -rf ~/.bash_logout
     rm -rf ~/.bash_profile

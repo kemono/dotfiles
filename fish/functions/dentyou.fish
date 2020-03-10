@@ -6,7 +6,7 @@ function dentyou
 
     set image_url $images[(expr (expr (random) "%" 3) + 1)]
     set file_name (echo (string split -rm1 / $image_url)[2] | nkf -w --url-input)
-    mkdir -p /tmp/dentyou
-    wget -nc $image_url -P /tmp/dentyou/ > /dev/null 2>&1
-    view-image /tmp/dentyou/$file_name
+    mkdir -p ~/tmp/dentyou
+    wget -nc $image_url -P ~/tmp/dentyou/ > /dev/null 2>&1
+    view-image ~/tmp/dentyou/$file_name
 end
