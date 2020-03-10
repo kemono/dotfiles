@@ -11,6 +11,7 @@ function play-movie
     --border=no \
     --loop=yes \
     --really-quiet=yes \
+    --speed=$play_speed \
     --vo=caca \
     'https://www.youtube.com/watch?v='$argv[1] \
     2>/dev/null
