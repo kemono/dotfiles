@@ -14,7 +14,7 @@ if [ -e /usr/bin/apt ]; then
     apt update -y
     apt upgrade -y
     
-    apt install -y sudo curl ssh openssh-server firewalld fish anacron git task-japanese locales-all
+    apt install -y sudo curl wget ssh openssh-server firewalld fish anacron git task-japanese locales-all
 fi
 
 # Japanese env setting
