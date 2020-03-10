@@ -15,14 +15,6 @@ if test -d $HOME/.cargo/bin
     set -x PATH  $HOME/.cargo/bin $PATH
 end
 
-if test -d /usr/local/bin
-    set -x PATH  /usr/local/bin $PATH
-end
-
-if test -d /usr/games
-    set -x PATH  /usr/games $PATH
-end
-
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
