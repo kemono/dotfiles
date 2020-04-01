@@ -48,7 +48,6 @@ lynx \
 make \
 mpv \
 ncurses-dev \
-nethack-console \
 nkf \
 nmap \
 npm \
