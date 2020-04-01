@@ -3,7 +3,6 @@
 # default package list
 set install_packages \
 anacron \
-angband \
 autoconf \
 automake \
 bison \
