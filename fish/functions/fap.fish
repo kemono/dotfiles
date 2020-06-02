@@ -1,5 +1,5 @@
 function fap
-    set gender female dickgirl
+    set gender female gynomorph
     set filetype jpg png
     set random_index (expr (expr (random) "%" 50) + 1)
     set random_gender (expr (expr (random) "%" (count $gender)) + 1)
