@@ -40,6 +40,7 @@ libjpeg-dev \
 libmagickwand-dev \
 libncurses-dev \
 libpng-dev \
+libsoil-dev \
 libtiff-dev \
 libtool-dev \
 libx11-dev \
