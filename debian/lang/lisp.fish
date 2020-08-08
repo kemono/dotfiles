@@ -3,7 +3,7 @@
 mkdir -p ~/tmp/dotfiles/src
 cd ~/tmp/dotfiles/src
 
-set latest_version 2.0.6
+set latest_version 2.0.7
 
 set current_version ""
 if test -e /usr/local/bin/sbcl
