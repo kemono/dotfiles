@@ -37,6 +37,7 @@ chown gazelle:gazelle /home/gazelle/.ssh/authorized_keys
 firewall-cmd --permanent --remove-service=ssh
 firewall-cmd --permanent --remove-service=dhcpv6-client
 firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=443/tcp
 
 # service setting
 systemctl enable sshd
