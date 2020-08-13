@@ -55,6 +55,8 @@ set install_packages \
     pkg-config \
     pv \
     python3-pip \
+    screen \
+    silversearcher-ag \
     ssh \
     texinfo \
     traceroute \
