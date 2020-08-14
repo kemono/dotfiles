@@ -62,6 +62,7 @@ alias fnaf-sl 'play-movie kXMwZNRiPe0'
 
 # music video
 alias beep-beep       'play-movie wCZFISvHmyY'
+alias chosen          'play-movie aJgOdZN4HcA'
 alias civ4-intro      'play-movie ZRUnoGmwNCA'
 alias die-young       'play-movie -PKNuZovuSw'
 alias let-it-happen   'play-movie pFptt7Cargc'
@@ -69,7 +70,6 @@ alias no-mercy        'play-movie S9uTScSgzrM'
 alias olympic         'play-movie bzdxwj4422Q'
 alias ppap            'play-movie Ct6BUPvE2sM'
 alias right-now       'play-movie 8ZSN56ghPig'
-alias treasure-island 'play-movie LIlZCmETvsY'
 alias wdtfs           'play-movie jofNR_WkoCE'
 alias winter-wrap-up  'play-movie L9BAeyZhAdE'
 
