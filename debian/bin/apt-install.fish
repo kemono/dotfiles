@@ -10,6 +10,7 @@ build-essential \
 caca-utils \
 chromium-chromedriver \
 chromium-driver \
+clusterssh \
 cowsay \
 cpulimit \
 curl \
