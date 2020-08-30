@@ -35,13 +35,16 @@ libcurl4-openssl-dev \
 libfreetype6-dev \
 libgif-dev \
 libglib2.0-dev \
+libgmp-dev \
 libgnutls28-dev \
 libgtk2.0-dev \
+libjansson-dev \
 libjpeg-dev \
 libmagickwand-dev \
 libncurses-dev \
 libpng-dev \
 libsoil-dev \
+libssl-dev \
 libtiff-dev \
 libtool-dev \
 libx11-dev \
@@ -64,6 +67,7 @@ texinfo \
 traceroute \
 vim \
 zip \
+zlib1g-dev \
 zsh \
 zstd
 

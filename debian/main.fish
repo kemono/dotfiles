@@ -18,6 +18,7 @@ mkdir -p ~/projects
 ~/dotfiles/debian/tool/chafa.fish
 ~/dotfiles/debian/tool/sdl.fish
 ~/dotfiles/debian/tool/emacs.fish
+~/dotfiles/debian/tool/cpuminer.fish
 
 # language install
 ~/dotfiles/debian/lang/lisp.fish
