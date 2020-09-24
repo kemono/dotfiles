@@ -6,6 +6,10 @@ if (!(Test-Path ~\AppData\Local\Microsoft\WindowsApps\ubuntu1804.exe)) {
         Restart-Computer -Force
     }
 
+    # WSL2 install
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    wsl --set-default-version 2
+
     # make tmp directory
     Remove-Item -path C:\tmp -recurse -force
     New-Item C:\tmp -Force -ItemType Directory
