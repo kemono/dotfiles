@@ -2,7 +2,7 @@
 
 mkdir -p ~/tmp/dotfiles/src
 cd ~/tmp/dotfiles/src
-git clone --depth 1 -b emacs-26.3 https://github.com/emacs-mirror/emacs.git
+git clone --depth 1 -b emacs-27 https://github.com/emacs-mirror/emacs.git
 cd emacs
 
 ./autogen.sh

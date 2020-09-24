@@ -7,6 +7,6 @@ emacs git steam winrar rufus aimp `
 libreoffice qbittorrent lein firefox `
 python openssh sysinternals vim `
 vcxsrv googlechrome selenium-chrome-driver `
-protonvpn vlc virtualbox openjdk
+protonvpn vlc virtualbox openjdk12
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
