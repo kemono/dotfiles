@@ -9,6 +9,6 @@ python openssh sysinternals vim `
 vcxsrv googlechrome selenium-chrome-driver `
 protonvpn vlc virtualbox openjdk12 `
 pwsh wireshark winpcap gow audacity `
-jq ghidra crystaldiskinfo
+jq ghidra crystaldiskinfo alacritty
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
