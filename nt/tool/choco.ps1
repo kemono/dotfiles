@@ -8,6 +8,7 @@ libreoffice qbittorrent lein firefox `
 python openssh sysinternals vim `
 vcxsrv googlechrome selenium-chrome-driver `
 protonvpn vlc virtualbox openjdk12 `
-pwsh
+pwsh wireshark winpcap gow audacity `
+jq
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
