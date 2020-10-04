@@ -55,9 +55,10 @@ alias emacs 'ec'
 ## ------------------------------------------------------------------------
 
 # fnaf
-alias fnaf-1  'play-movie Yp_wGcXxX-Y'
-alias fnaf-2  'play-movie jXP2NEM4Onc'
+alias fnaf-1  'play-movie l18A5BOTlzE'
+alias fnaf-2  'play-movie gk-aCL6eyGc'
 alias fnaf-3  'play-movie AibtyCAhyQE'
+alias fnaf-4  'play-movie YREhVveHq9k'
 alias fnaf-sl 'play-movie kXMwZNRiPe0'
 
 # music video
