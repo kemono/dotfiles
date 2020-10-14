@@ -363,6 +363,11 @@
 ;;                           Other Setting
 ;; ------------------------------------------------------------------------
 
+;; Vim mode
+(use-package evil
+  :config (evil-mode 1)
+  (setq evil-default-state 'emacs))
+
 ;; View git diff
 (use-package git-gutter
   :config (global-git-gutter-mode t))
