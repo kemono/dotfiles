@@ -5,7 +5,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 C:\ProgramData\chocolatey\bin\choco.exe install -y `
 emacs git steam winrar rufus aimp ghidra `
 libreoffice qbittorrent lein vivaldi `
-python sysinternals vim vcxsrv googlechrome `
+python sysinternals vcxsrv googlechrome `
 selenium-chrome-driver protonvpn vlc `
 openjdk12 pwsh wireshark winpcap audacity
 
