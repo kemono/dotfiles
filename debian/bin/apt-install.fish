@@ -66,6 +66,7 @@ ssh \
 texinfo \
 traceroute \
 vim \
+vuls \
 zip \
 zlib1g-dev \
 zsh \
