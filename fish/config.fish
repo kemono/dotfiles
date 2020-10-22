@@ -18,7 +18,7 @@ end
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
-    set -gx DISPLAY "localhost:0.0"
+    set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0.0"
 end
 
 ## ------------------------------------------------------------------------
