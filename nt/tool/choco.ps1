@@ -7,6 +7,7 @@ emacs git steam winrar rufus aimp ghidra `
 libreoffice qbittorrent lein vivaldi `
 python sysinternals vcxsrv googlechrome `
 selenium-chrome-driver protonvpn vlc `
-openjdk12 pwsh wireshark winpcap audacity
+openjdk12 pwsh wireshark winpcap audacity `
+azure-cli
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
