@@ -74,6 +74,9 @@ alias right-now       'play-movie 8ZSN56ghPig'
 alias wdtfs           'play-movie jofNR_WkoCE'
 alias winter-wrap-up  'play-movie L9BAeyZhAdE'
 
+alias bna-op          'play-movie 3Okzra8Anr4'
+alias bna-ed          'play-movie WWTFfEnMCCc'
+
 ## ------------------------------------------------------------------------
 ##                              Alias (Novel)
 ## ------------------------------------------------------------------------
