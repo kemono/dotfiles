@@ -65,6 +65,7 @@ speedtest-cli \
 ssh \
 texinfo \
 traceroute \
+transmission \
 vim \
 vuls \
 zip \
