@@ -66,6 +66,7 @@ ssh \
 texinfo \
 traceroute \
 transmission \
+transmission-cli \
 vim \
 vuls \
 zip \
