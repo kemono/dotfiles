@@ -21,6 +21,10 @@ if test -d /mnt/c
     set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0"
 end
 
+# transmission settings
+mkdir -p ~/Downloads
+transmission-daemon --download-dir ~/Downloads
+
 ## ------------------------------------------------------------------------
 ##                             Alias (Git)
 ## ------------------------------------------------------------------------
