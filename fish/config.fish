@@ -25,6 +25,12 @@ end
 mkdir -p ~/Downloads
 transmission-daemon --download-dir ~/Downloads
 
+# ssh agent
+if test -f ~/.ssh/id_ed25519
+    eval (ssh-agent -c)
+    ssh-add ~/.ssh/id_ed25519
+end
+
 ## ------------------------------------------------------------------------
 ##                             Alias (Git)
 ## ------------------------------------------------------------------------
