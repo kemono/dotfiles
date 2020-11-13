@@ -21,10 +21,6 @@ if test -d /mnt/c
     set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0"
 end
 
-# transmission settings
-mkdir -p ~/Downloads
-transmission-daemon --download-dir ~/Downloads
-
 # ssh agent
 if test -f ~/.ssh/id_ed25519
     eval (ssh-agent -c) > /dev/null 2>&1
