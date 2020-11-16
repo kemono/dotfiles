@@ -56,6 +56,7 @@ set install_packages \
     nkf \
     nmap \
     npm \
+    openvpn \
     pkg-config \
     pv \
     python3-pip \
