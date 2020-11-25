@@ -8,6 +8,6 @@ libreoffice qbittorrent lein vivaldi `
 python sysinternals vcxsrv googlechrome `
 selenium-chrome-driver protonvpn vlc `
 openjdk12 pwsh wireshark winpcap audacity `
-azure-cli kindle dnspy
+azure-cli kindle dnspy tor-browser
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
