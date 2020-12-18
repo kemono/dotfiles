@@ -60,6 +60,7 @@ set install_packages \
     pkg-config \
     pv \
     python3-pip \
+    rdesktop \
     screen \
     silversearcher-ag \
     speedtest-cli \
