@@ -67,9 +67,6 @@ set install_packages \
     ssh \
     texinfo \
     traceroute \
-    transmission-cli \
-    transmission-daemon \
-    transmission-remote \
     vim \
     vuls \
     zip \
