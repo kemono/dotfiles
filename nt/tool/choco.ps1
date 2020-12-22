@@ -24,6 +24,7 @@ lein `
 libreoffice `
 nmap `
 openjdk12 `
+openssh `
 postman `
 protonvpn `
 pwsh `
