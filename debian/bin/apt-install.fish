@@ -20,6 +20,7 @@ set install_packages \
     ffmpeg \
     fish \
     flex \
+    freerdp2-x11 \
     g++ \
     gawk \
     gcc \
@@ -60,7 +61,6 @@ set install_packages \
     pkg-config \
     pv \
     python3-pip \
-    rdesktop \
     screen \
     silversearcher-ag \
     speedtest-cli \
