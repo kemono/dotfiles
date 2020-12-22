@@ -20,7 +20,6 @@ set install_packages \
     ffmpeg \
     fish \
     flex \
-    freerdp2-x11 \
     g++ \
     gawk \
     gcc \
