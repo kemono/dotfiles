@@ -11,6 +11,7 @@ if [ -e /usr/bin/apt ]; then
     timedatectl set-timezone Asia/Tokyo
 
     # current apt update
+    export DEBIAN_FRONTEND=noninteractive
     apt update -y
     apt upgrade -y
     
