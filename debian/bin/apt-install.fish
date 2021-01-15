@@ -3,6 +3,7 @@
 # default package list
 set install_packages \
     anacron \
+    at \
     autoconf \
     automake \
     bison \
@@ -18,6 +19,7 @@ set install_packages \
     default-jre \
     dnsutils \
     ffmpeg \
+    firewalld \
     fish \
     flex \
     g++ \
@@ -49,6 +51,7 @@ set install_packages \
     libtool-dev \
     libx11-dev \
     libxpm-dev \
+    locales-all \
     lynx \
     make \
     mpv \
@@ -56,18 +59,24 @@ set install_packages \
     nkf \
     nmap \
     npm \
+    ntp \
+    openssh-server \
     openvpn \
     pkg-config \
     pv \
     python3-pip \
     screen \
     silversearcher-ag \
+    software-properties-common \
     speedtest-cli \
     ssh \
+    sudo \
+    task-japanese \
     texinfo \
     traceroute \
     vim \
     vuls \
+    wget \
     zip \
     zlib1g-dev \
     zsh \
