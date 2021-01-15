@@ -8,6 +8,7 @@ mkdir -p ~/projects
 ~/dotfiles/debian/bin/pip-install.fish
 ~/dotfiles/debian/bin/npm-install.fish
 ~/dotfiles/debian/bin/link.fish
+~/dotfiles/debian/bin/time-fix.fish
 
 # other tools install
 ~/dotfiles/debian/tool/jnethack.bash
