@@ -59,7 +59,6 @@ set install_packages \
     nkf \
     nmap \
     npm \
-    ntp \
     openssh-server \
     openvpn \
     pkg-config \
