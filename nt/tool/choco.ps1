@@ -8,6 +8,7 @@ audacity `
 azure-cli `
 bleachbit `
 choco-cleaner `
+chromedriver `
 crystaldiskinfo `
 curl `
 dnspy `
@@ -31,7 +32,6 @@ pwsh `
 python `
 qbittorrent `
 rufus `
-selenium-chrome-driver `
 steam `
 sysinternals `
 tor-browser `
