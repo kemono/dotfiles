@@ -51,3 +51,4 @@ Get-AppxPackage microsoft.windowscommunicationsapps | Remove-AppxPackage
 Get-AppxPackage Microsoft.Messaging | Remove-AppxPackage
 Get-AppxPackage Microsoft.YourPhone | Remove-AppxPackage
 Get-AppxPackage Microsoft.OneConnect | Remove-AppxPackage
+Get-AppxPackage Microsoft.549981C3F5F10 | Remove-AppxPackage
