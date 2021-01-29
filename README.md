@@ -11,3 +11,8 @@ Login root, After Run this command.
 Login gazelle, After Run this command.
 
     nohup bash -c 'curl -L init.kemono.app | bash' &
+
+# Caution
+
+This environment setup script has a process to automatically add my ssh public key.
+If you want it to work, please remove the added user's (gazelle) ssh key for safety.
