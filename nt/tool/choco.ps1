@@ -23,6 +23,7 @@ jq `
 kindle `
 lein `
 libreoffice `
+microsoftazurestorageexplorer `
 nmap `
 openjdk12 `
 openssh `
