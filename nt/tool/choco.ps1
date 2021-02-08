@@ -43,4 +43,7 @@ winpcap `
 winrar `
 wireshark
 
+choco install -y visualstudio2019community `
+--package-parameters "--allWorkloads --locale ja-JP"
+
 C:\ProgramData\chocolatey\bin\cup.exe -y all
