@@ -7,6 +7,7 @@ function play-movie
         set play_speed 1
     end
 
+    env --unset=DISPLAY \
     mpv \
     --border=no \
     --loop=yes \
