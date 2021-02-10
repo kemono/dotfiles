@@ -55,6 +55,7 @@ set install_packages \
     lynx \
     make \
     mpv \
+    ncrack \
     ncurses-dev \
     nkf \
     nmap \
