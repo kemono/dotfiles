@@ -13,6 +13,7 @@ crystaldiskinfo `
 curl `
 dnspy `
 emacs `
+firacode `
 ghidra `
 git `
 googlechrome `
