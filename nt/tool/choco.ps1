@@ -6,14 +6,12 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
 aimp `
 audacity `
 azure-cli `
-bleachbit `
 choco-cleaner `
 chromedriver `
 crystaldiskinfo `
 curl `
 dnspy `
 emacs `
-firacode `
 ghidra `
 git `
 googlechrome `
@@ -26,9 +24,8 @@ lein `
 libreoffice `
 microsoftazurestorageexplorer `
 nmap `
-openjdk12 `
+openjdk `
 openssh `
-postman `
 protonvpn `
 pwsh `
 python `
