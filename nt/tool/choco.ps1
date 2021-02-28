@@ -23,6 +23,7 @@ kindle `
 lein `
 libreoffice `
 nmap `
+okular `
 openjdk `
 openssh `
 protonvpn `
