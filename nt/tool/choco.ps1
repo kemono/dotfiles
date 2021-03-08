@@ -4,26 +4,13 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 C:\ProgramData\chocolatey\bin\choco.exe install -y `
 aimp `
-audacity `
-azure-cli `
 choco-cleaner `
-chromedriver `
-crystaldiskinfo `
-curl `
-dnspy `
 emacs `
 ghidra `
 git `
-googlechrome `
-graphviz `
-ilspy `
 irfanview `
-jq `
-kindle `
 lein `
 libreoffice `
-nmap `
-okular `
 openjdk `
 openssh `
 protonvpn `
@@ -33,16 +20,12 @@ qbittorrent `
 rufus `
 steam `
 sysinternals `
-tor-browser `
 vcxsrv `
+virtualbox `
 vivaldi `
 vlc `
-wget `
 winpcap `
 winrar `
 wireshark
-
-choco install -y visualstudio2019community `
---package-parameters "--allWorkloads --locale ja-JP"
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
