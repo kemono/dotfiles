@@ -23,7 +23,6 @@ sysinternals `
 vcxsrv `
 virtualbox `
 vivaldi `
-vlc `
 winpcap `
 winrar `
 wireshark
