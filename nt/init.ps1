@@ -1,4 +1,3 @@
-C:\dotfiles\nt\tool\debian.ps1
 C:\dotfiles\nt\tool\choco.ps1
 C:\dotfiles\nt\tool\ssh-server.ps1
 C:\dotfiles\nt\tool\yiffalicious.ps1
