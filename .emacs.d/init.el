@@ -421,6 +421,8 @@
   :custom (beacon-color "blue")
   :config (beacon-mode 1))
 
+(use-package powershell)
+
 ;; Truncate setting (set Disable)
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)

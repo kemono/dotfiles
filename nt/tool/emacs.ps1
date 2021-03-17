@@ -17,5 +17,9 @@ if (!(Test-Path "~/quicklisp")) {
 cmd /c "mklink %userprofile%\.sbclrc C:\dotfiles\.sbclrc"
 cmd /c "mklink /D %userprofile%\AppData\Roaming\.emacs.d C:\dotfiles\.emacs.d"
 
+
+if (!(Test-Path "C:\projects")) {
+    New-Item C:\projects -Force -ItemType Directory
+}
 Remove-Item -path ~\quicklisp\local-projects -recurse -force
 cmd /c "mklink /D %userprofile%\quicklisp\local-projects C:\projects"
