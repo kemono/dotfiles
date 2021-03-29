@@ -1,7 +1,11 @@
 function maintenance
 
     # ssh key update
-    curl https://github.com/kemono.keys > ~/.ssh/authorized_keys
+    
+    curl https://github.com/kemono.keys > ~/.ssh/authorized_keys_tmp
+    if test (wc -c ~/.ssh/authorized_keys  | cut -d' ' -f1) -ne 0
+         mv ~/.ssh/authorized_keys_tmp ~/.ssh/authorized_keys -f
+    end
     chmod 600 ~/.ssh/authorized_keys
 
     # apt update
