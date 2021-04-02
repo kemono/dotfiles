@@ -22,6 +22,7 @@ set install_packages \
     firewalld \
     fish \
     flex \
+    freeciv \
     g++ \
     gawk \
     gcc \
