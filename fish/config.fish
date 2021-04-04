@@ -98,6 +98,7 @@ alias human-fail      'reading-novel https://www.aozora.gr.jp/cards/000035/files
 alias i-am-cat        'reading-novel https://www.aozora.gr.jp/cards/000148/files/789_14547.html'
 alias kokoro          'reading-novel https://www.aozora.gr.jp/cards/000148/files/773_14560.html'
 alias kokushikan      'reading-novel https://www.aozora.gr.jp/cards/000125/files/1317_23268.html'
+alias poison          'reading-novel https://www.aozora.gr.jp/cards/000081/files/454_42329.html'
 alias purchase-glove  'reading-novel https://www.aozora.gr.jp/cards/000121/files/637_13341.html'
 alias sangetsuki      'reading-novel https://www.aozora.gr.jp/cards/000119/files/624_14544.html'
 
