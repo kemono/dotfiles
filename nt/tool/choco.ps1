@@ -6,6 +6,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   aimp `
   alacritty `
   choco-cleaner `
+  crystaldiskinfo `
   dnspy `
   emacs `
   ghidra `
