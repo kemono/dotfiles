@@ -1,5 +1,5 @@
 shell:
-  program: pwsh
+  program: wsl
 
 window:
   dimensions:
