@@ -68,7 +68,6 @@ set install_packages \
     screen \
     silversearcher-ag \
     software-properties-common \
-    speedtest-cli \
     ssh \
     sudo \
     task-japanese \
