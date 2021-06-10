@@ -52,6 +52,7 @@ set install_packages \
     libx11-dev \
     libxpm-dev \
     locales-all \
+    lolcat \
     lynx \
     make \
     mpv \
