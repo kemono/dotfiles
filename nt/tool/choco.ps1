@@ -31,4 +31,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   winrar `
   wireshark
 
+C:\ProgramData\chocolatey\bin\choco.exe install -y visualstudio2019community `
+  --package-parameters "--allWorkloads --locale ja-JP"
+
 C:\ProgramData\chocolatey\bin\cup.exe -y all
