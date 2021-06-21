@@ -2,7 +2,6 @@ C:\dotfiles\nt\bin\network-settings.ps1
 C:\dotfiles\nt\tool\debian.ps1
 C:\dotfiles\nt\tool\choco.ps1
 C:\dotfiles\nt\tool\ssh-server.ps1
-C:\dotfiles\nt\tool\yiffalicious.ps1
 C:\dotfiles\nt\tool\sbcl.ps1
 C:\dotfiles\nt\tool\emacs.ps1
 
