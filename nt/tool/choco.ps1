@@ -6,10 +6,12 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   aimp `
   alacritty `
   choco-cleaner `
+  chocolateygui `
   crystaldiskinfo `
   dbeaver `
   dnspy `
   emacs `
+  ghidra `
   git `
   ilspy `
   irfanview `
