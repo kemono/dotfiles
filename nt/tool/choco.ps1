@@ -10,7 +10,6 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   dbeaver `
   dnspy `
   emacs `
-  ghidra `
   git `
   ilspy `
   irfanview `
