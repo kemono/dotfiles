@@ -2501,7 +2501,6 @@
 *://*.zitakurouzyou.com/*
 *://*.zizineta-sokuho.com/*
 *://*.zizineta.com/*
-*://*.zoom.us/*
 *://*.zsharp.org/*
 *://*.zubatopi.net/*
 *://*.zuboren.com/*
