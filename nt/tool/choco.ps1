@@ -15,6 +15,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   git `
   ilspy `
   irfanview `
+  kindle `
   lein `
   libreoffice `
   openjdk `
