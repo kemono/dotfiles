@@ -44,18 +44,20 @@ straight/
 .dir-locals.el
 
 # other
-cider-history
+.cache
+.mc-lists.el
 ac-comphist.dat
 async-bytecomp.log
+cider-history
+custom.el
+eclipse.jdt.ls
 emms
+kkcrc
+network-security.data
 projectile-bookmarks.eld
+semanticdb
 smex-items
+srecode-map.el
 undohist
 url
 var
-.mc-lists.el
-srecode-map.el
-semanticdb
-network-security.data
-kkcrc
-custom.el
