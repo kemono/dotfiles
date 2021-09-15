@@ -20,8 +20,8 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   libreoffice `
   openjdk `
   openssh `
+  powershell-core `
   protonvpn `
-  pwsh `
   python `
   qbittorrent `
   rufus `
