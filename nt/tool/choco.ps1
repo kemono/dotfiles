@@ -9,6 +9,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   chocolateygui `
   crystaldiskinfo `
   dbeaver `
+  deepl `
   dnspy `
   emacs `
   ghidra `
