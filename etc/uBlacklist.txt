@@ -684,6 +684,7 @@
 *://*.girlsvip-matome.com/*
 *://*.girlynews.net/*
 *://*.give-style.com/*
+*://*.gizmodo.jp/*
 *://*.gj.hatenablog.jp/*
 *://*.glacierpointsolutions.com/*
 *://*.glasses.daiiblog.com/*
