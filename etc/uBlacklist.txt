@@ -2520,3 +2520,4 @@
 /.*(techgym).*/
 /.*(teck-camp).*/
 /it-swarm.*/
+@*://wikiwiki.jp/*
