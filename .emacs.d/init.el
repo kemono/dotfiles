@@ -296,6 +296,11 @@
   (("C-M-c" . 'mc/edit-lines)
    ("C-M-r" . 'mc/mark-all-in-region)))
 
+;; Vim mode
+(use-package evil
+  :config (evil-mode 1)
+  (setq evil-default-state 'emacs))
+
 ;; Nyan mode !!
 (use-package nyan-mode
   :config
