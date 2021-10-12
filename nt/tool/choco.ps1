@@ -11,6 +11,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   dbeaver `
   deepl `
   dnspy `
+  eclipse `
   emacs `
   ghidra `
   git `
