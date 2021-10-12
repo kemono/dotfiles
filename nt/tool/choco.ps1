@@ -6,12 +6,10 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   aimp `
   alacritty `
   choco-cleaner `
-  chocolateygui `
   crystaldiskinfo `
   dbeaver `
   deepl `
   dnspy `
-  eclipse `
   emacs `
   ghidra `
   git `
@@ -35,8 +33,5 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   winpcap `
   winrar `
   wireshark
-
-C:\ProgramData\chocolatey\bin\choco.exe install -y visualstudio2019community `
-  --package-parameters "--allWorkloads --locale ja-JP"
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
