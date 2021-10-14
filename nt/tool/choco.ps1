@@ -28,7 +28,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   steam `
   sysinternals `
   vcxsrv `
-  vivaldi `
+  vivaldi.install `
   vlc `
   winpcap `
   winrar `
