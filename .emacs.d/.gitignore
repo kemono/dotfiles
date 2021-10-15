@@ -45,6 +45,8 @@ straight/
 
 # other
 .cache
+.dap-breakpoints
+.lsp-session-v1
 .mc-lists.el
 ac-comphist.dat
 async-bytecomp.log
@@ -61,3 +63,4 @@ srecode-map.el
 undohist
 url
 var
+workspace
