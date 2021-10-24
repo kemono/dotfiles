@@ -19,6 +19,10 @@ end
 if test -d /mnt/c
     and test -z $DISPLAY
     set -gx DISPLAY (ip addr | grep 192 | awk '{print $2}' | awk -F'/' '{print $1}')":0.0"
+
+    if test -z $DISPLAY
+        set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0"
+    end
 end
 
 # ssh agent
