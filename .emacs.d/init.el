@@ -475,6 +475,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ; "yes or no" -> "y or n"
 (global-auto-revert-mode 1) ; Auto reload buffer
 (global-font-lock-mode t) ; Highlight keyword color
+(global-set-key "\C-t" 'other-window) ; change window
 (global-set-key "\C-x\C-b" 'bs-show) ; Better display buffer list
 (global-set-key [f5] 'redraw-display)
 (global-set-key [f8] 'neotree-toggle) ; Open Directory tree
