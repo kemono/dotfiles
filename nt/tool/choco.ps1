@@ -7,13 +7,9 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   alacritty `
   choco-cleaner `
   crystaldiskinfo `
-  dbeaver `
-  deepl `
   dnspy `
   emacs `
-  ghidra `
   git `
-  ilspy `
   irfanview `
   kindle `
   lein `
@@ -24,14 +20,11 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   protonvpn `
   python `
   qbittorrent `
-  rufus `
   steam `
   sysinternals `
   vcxsrv `
   vivaldi.install `
   vlc `
-  winpcap `
-  winrar `
-  wireshark
+  winrar
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
