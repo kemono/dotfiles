@@ -7,6 +7,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   alacritty `
   choco-cleaner `
   crystaldiskinfo `
+  deepl `
   dnspy `
   emacs `
   git `
@@ -25,6 +26,8 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   vcxsrv `
   vivaldi.install `
   vlc `
-  winrar
+  winpcap `
+  winrar `
+  wireshark
 
 C:\ProgramData\chocolatey\bin\cup.exe -y all
