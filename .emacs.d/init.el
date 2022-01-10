@@ -464,6 +464,8 @@
 
 (use-package powershell)
 
+(use-package markdown-mode)
+
 ;; Truncate setting (set Disable)
 (setq truncate-lines nil)
 (setq truncate-partial-width-windows nil)
