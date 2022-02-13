@@ -24,6 +24,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   qbittorrent `
   steam `
   sysinternals `
+  tor-browser `
   vcxsrv `
   vivaldi.install `
   vlc `
