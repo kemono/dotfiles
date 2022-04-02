@@ -22,6 +22,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   protonvpn `
   python `
   qbittorrent `
+  rufus `
   steam `
   sysinternals `
   tor-browser `
