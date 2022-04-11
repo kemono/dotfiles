@@ -35,6 +35,8 @@ set install_packages \
     jq \
     libcurl4-openssl-dev \
     libfreetype6-dev \
+    libgccjit-12-dev \
+    libgccjit-8-dev \
     libgif-dev \
     libglib2.0-dev \
     libgmp-dev \
