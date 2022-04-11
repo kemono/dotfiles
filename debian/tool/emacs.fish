@@ -7,22 +7,23 @@ cd emacs
 
 ./autogen.sh
 ./configure \
---enable-link-time-optimization \
---with-cairo \
---with-gnutls \
---with-mailutils \
---with-modules \
---with-sound \
---with-wide-int \
---with-x-toolkit=no \
---without-dbus \
---without-gconf \
---without-gsettings \
---without-pop \
---without-makeinfo \
---without-toolkit-scroll-bars \
---without-x \
---without-xim
+    --enable-link-time-optimization \
+    --with-cairo \
+    --with-gnutls \
+    --with-mailutils \
+    --with-modules \
+    --with-native-compilation \
+    --with-sound \
+    --with-wide-int \
+    --with-x-toolkit=no \
+    --without-dbus \
+    --without-gconf \
+    --without-gsettings \
+    --without-makeinfo \
+    --without-pop \
+    --without-toolkit-scroll-bars \
+    --without-x \
+    --without-xim
 
 make
 sudo make install
