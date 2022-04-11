@@ -44,10 +44,12 @@ straight/
 .dir-locals.el
 
 # other
+*.\~undo-tree\~
 .cache
 .dap-breakpoints
 .lsp-session-v1
 .mc-lists.el
+/tmp/
 ac-comphist.dat
 async-bytecomp.log
 cider-history
@@ -64,4 +66,3 @@ undohist
 url
 var
 workspace
-*.\~undo-tree\~

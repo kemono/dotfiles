@@ -287,6 +287,13 @@
 ;; Redo
 (setq undo-no-redo t)
 
+;; Undohist
+(use-package undohist
+  :config
+  (undohist-initialize)
+  (setq undohist-ignored-files
+        '("/tmp/" "COMMIT_EDITMSG")))
+
 ;; ------------------------------------------------------------------------
 ;;                        Emacs Environ Setting
 ;; ------------------------------------------------------------------------
