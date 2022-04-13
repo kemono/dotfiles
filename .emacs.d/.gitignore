@@ -44,7 +44,6 @@ straight/
 .dir-locals.el
 
 # other
-*.\~undo-tree\~
 .cache
 .dap-breakpoints
 .lsp-session-v1

@@ -281,7 +281,9 @@
 
 ;; Undo
 (use-package undo-tree
-  :config (global-undo-tree-mode t)
+  :config
+  (global-undo-tree-mode t)
+  (setq undo-tree-history-directory-alist '("." . "~/.emacs.d/tmp"))
   :bind (("M-/" . 'undo-tree-redo)))
 
 ;; Redo
