@@ -115,6 +115,7 @@ alias sl       'ls'
 alias l        'ls -AbFhlopX --time-style="+%m/%d %H:%M" -r'
 
 alias jnethack "~/nh/install/games/jnethack"
+alias parrot   "curl parrot.live"
 alias spartan  "clear; curl -L raw.githubusercontent.com/kemono/dotfiles/master/etc/SpartansMarch.txt -s | lolcat"
 
 if test -f $HOME/.cargo/bin/bandwhich
