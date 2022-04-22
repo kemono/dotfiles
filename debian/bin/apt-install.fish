@@ -18,6 +18,8 @@ set install_packages \
     default-jdk \
     default-jre \
     dnsutils \
+    enum4linux \
+    feroxbuster \
     ffmpeg \
     firewalld \
     fish \
@@ -28,10 +30,12 @@ set install_packages \
     gdb \
     gdebi \
     git \
+    gobuster \
     gzip \
     htop \
     httpie \
     imagemagick \
+    impacket-scripts \
     jq \
     libcurl4-openssl-dev \
     libfreetype6-dev \
@@ -58,27 +62,41 @@ set install_packages \
     lynx \
     make \
     mpv \
+    nbtscan \
     ncrack \
     ncurses-dev \
+    nikto \
     nkf \
     nmap \
     npm \
+    onesixtyone \
     openssh-server \
     openvpn \
+    oscanner \
     pkg-config \
     pv \
     python3-pip \
+    redis-tools \
     screen \
+    seclists \
     silversearcher-ag \
+    sipvicious \
+    smbclient \
+    smbmap \
+    snmp \
     software-properties-common \
     ssh \
+    sslscan \
     sudo \
     task-japanese \
     texinfo \
+    tnscmd10g \
     traceroute \
     vim \
     vuls \
     wget \
+    whatweb \
+    wkhtmltopdf \
     zip \
     zlib1g-dev \
     zsh \
