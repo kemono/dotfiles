@@ -203,6 +203,8 @@
   :config
   (add-hook 'java-mode-hook #'lsp))
 
+(use-package typescript-mode)
+
 (use-package quickrun)
 
 ;; ------------------------------------------------------------------------
