@@ -31,6 +31,7 @@ set install_packages \
     gdebi \
     git \
     gobuster \
+    golang \
     gzip \
     htop \
     httpie \
