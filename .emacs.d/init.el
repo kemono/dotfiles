@@ -213,6 +213,9 @@
 ;;                                  Go
 ;; ------------------------------------------------------------------------
 
+(when (file-directory-p "~/go/bin/")
+  (add-to-list 'exec-path (expand-file-name "~/go/bin/")))
+
 (use-package company-go)
 (use-package go-mode
   :config
@@ -225,6 +228,10 @@
               (setq indent-tabs-mode nil)
               (setq c-basic-offset 4)
               (setq tab-width 4))))
+
+(use-package go-eldoc
+  :config
+  (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 ;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
