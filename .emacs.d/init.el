@@ -196,14 +196,39 @@
   :init (add-hook 'cider-mode-hook #'clj-refactor-mode))
 
 ;; ------------------------------------------------------------------------
-;;                        Other Programming Language
+;;                                 Java
 ;; ------------------------------------------------------------------------
 
 (use-package lsp-java
   :config
   (add-hook 'java-mode-hook #'lsp))
 
+;; ------------------------------------------------------------------------
+;;                              TypeScript
+;; ------------------------------------------------------------------------
+
 (use-package typescript-mode)
+
+;; ------------------------------------------------------------------------
+;;                                  Go
+;; ------------------------------------------------------------------------
+
+(use-package company-go)
+(use-package go-mode
+  :config
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook' 'gofmt-before-save)
+              (local-set-key (kbd "M-.") 'godef-jump)
+              (set (make-local-variable 'company-backends) '(company-go))
+              (company-mode)
+              (setq indent-tabs-mode nil)
+              (setq c-basic-offset 4)
+              (setq tab-width 4))))
+
+;; ------------------------------------------------------------------------
+;;                        Other Programming Language
+;; ------------------------------------------------------------------------
 
 (use-package quickrun)
 
