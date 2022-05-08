@@ -18,7 +18,7 @@ end
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
-    set -gx DISPLAY (ip addr | grep 192 | awk '{print $2}' | awk -F'/' '{print $1}')":0.0"
+    set -gx DISPLAY (ipconfig.exe | awk '/IPv4.*192.168.[0-9]{,3}.[0-9]{,3}/ {sub("\r", "", $NF); printf("%s:0.0", $NF);}')
 
     if test -z $DISPLAY
         set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0"
