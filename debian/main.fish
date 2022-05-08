@@ -7,6 +7,7 @@ mkdir -p ~/projects
 ~/dotfiles/debian/bin/apt-install.fish
 ~/dotfiles/debian/bin/pip-install.fish
 ~/dotfiles/debian/bin/npm-install.fish
+~/dotfiles/debian/bin/go-get-install.fish
 ~/dotfiles/debian/bin/link.fish
 
 # other tools install
