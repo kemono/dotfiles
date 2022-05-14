@@ -214,6 +214,15 @@
 ;; ------------------------------------------------------------------------
 
 (use-package skewer-mode)
+(use-package company-tern
+  :config
+  (setq company-tern-property-marker "")
+  (defun company-tern-depth (candidate)
+    "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
+    (let ((depth (get-text-property 0 'depth candidate)))
+      (if (eq depth nil) 0 depth)))
+  (add-hook 'js2-mode-hook 'tern-mode)
+  (add-to-list 'company-backends 'company-tern))
 
 ;; ------------------------------------------------------------------------
 ;;                                  Go
