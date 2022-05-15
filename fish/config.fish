@@ -15,6 +15,10 @@ if test -d $HOME/.cargo/bin
     set -x PATH  $HOME/.cargo/bin $PATH
 end
 
+if test -d $HOME/.nodebrew
+    set -x PATH  $HOME/.nodebrew/current/bin $PATH
+end
+
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY

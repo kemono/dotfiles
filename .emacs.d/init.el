@@ -213,7 +213,11 @@
 ;;                              JavaScript
 ;; ------------------------------------------------------------------------
 
+(when (file-directory-p "~/usr/local/bin/")
+  (add-to-list 'exec-path (expand-file-name "~/usr/local/bin/")))
+
 (use-package skewer-mode)
+
 (use-package company-tern
   :config
   (setq company-tern-property-marker "")
@@ -223,6 +227,11 @@
       (if (eq depth nil) 0 depth)))
   (add-hook 'js2-mode-hook 'tern-mode)
   (add-to-list 'company-backends 'company-tern))
+
+(use-package lsp-mode
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (js-mode . lsp-deferred))
 
 ;; ------------------------------------------------------------------------
 ;;                                  Go
