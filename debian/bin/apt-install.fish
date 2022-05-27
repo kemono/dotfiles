@@ -75,6 +75,7 @@ set install_packages \
     openvpn \
     oscanner \
     pkg-config \
+    poppler-utils \
     pv \
     python3-pip \
     redis-tools \
