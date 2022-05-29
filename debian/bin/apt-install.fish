@@ -89,6 +89,7 @@ set install_packages \
     software-properties-common \
     ssh \
     sslscan \
+    steghide \
     sudo \
     task-japanese \
     texinfo \
