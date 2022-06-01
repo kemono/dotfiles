@@ -99,6 +99,7 @@ set install_packages \
     vuls \
     wget \
     whatweb \
+    whois \
     wkhtmltopdf \
     zip \
     zlib1g-dev \
