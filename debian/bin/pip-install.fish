@@ -2,7 +2,6 @@
 
 set install_package \
     git+https://github.com/Tib3rius/AutoRecon.git \
-    protonvpn-cli \
     speedtest-cli \
     youtube-dl
 

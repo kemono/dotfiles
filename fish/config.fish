@@ -7,6 +7,9 @@ set -q XDG_DATA_HOME
 and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
 or set -gx OMF_PATH "$HOME/.local/share/omf"
 
+# screen path
+set -gx SCREENDIR $HOME/.screen
+
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
 
@@ -15,10 +18,14 @@ if test -d $HOME/.cargo/bin
     set -x PATH  $HOME/.cargo/bin $PATH
 end
 
+if test -d $HOME/.nodebrew
+    set -x PATH  $HOME/.nodebrew/current/bin $PATH
+end
+
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
-    set -gx DISPLAY (ipconfig.exe | awk '/IPv4.*192.168.[0-9]{,3}.[0-9]{,3}/ {sub("\r", "", $NF); printf("%s:0.0", $NF);}')
+    set -gx DISPLAY (ipconfig.exe | grep 192 | head -n 1 | awk '/IPv4.*192.168.[0-9]{,3}.[0-9]{,3}/ {sub("\r", "", $NF); printf("%s:0.0", $NF);}')
 
     if test -z $DISPLAY
         set -gx DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}')":0"

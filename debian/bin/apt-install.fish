@@ -75,6 +75,7 @@ set install_packages \
     openvpn \
     oscanner \
     pkg-config \
+    poppler-utils \
     pv \
     python3-pip \
     redis-tools \
@@ -88,6 +89,7 @@ set install_packages \
     software-properties-common \
     ssh \
     sslscan \
+    steghide \
     sudo \
     task-japanese \
     texinfo \
@@ -97,6 +99,7 @@ set install_packages \
     vuls \
     wget \
     whatweb \
+    whois \
     wkhtmltopdf \
     zip \
     zlib1g-dev \
