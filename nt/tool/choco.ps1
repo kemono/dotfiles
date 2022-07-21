@@ -6,6 +6,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   adb `
   aimp `
   androidstudio `
+  audacity `
   choco-cleaner `
   crystaldiskinfo `
   deepl `
