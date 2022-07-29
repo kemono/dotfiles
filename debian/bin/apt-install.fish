@@ -93,6 +93,7 @@ set install_packages \
     sudo \
     task-japanese \
     texinfo \
+    tmux \
     tnscmd10g \
     traceroute \
     vim \
