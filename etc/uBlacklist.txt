@@ -555,6 +555,7 @@
 *://*.feve-3.com/*
 *://*.ff14matome.antenam.biz/*
 *://*.ff14matome.warotamaker.com/*
+*://*.ffwpu.jp/*
 *://*.finalsquall.com/*
 *://*.financel.xyz/*
 *://*.find-celebrities.com/*
