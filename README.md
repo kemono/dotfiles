@@ -1,4 +1,4 @@
-# Install (Ubuntu)
+# Install (Debian)
 
 ### Step 1: Add user
 
