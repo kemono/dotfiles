@@ -9,6 +9,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   audacity `
   choco-cleaner `
   crystaldiskinfo `
+  discord `
   dnspy `
   emacs `
   git `
