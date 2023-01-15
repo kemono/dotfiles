@@ -17,6 +17,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   libreoffice `
   openjdk `
   openssh `
+  pcsx2 `
   powershell-core `
   protonvpn `
   python `
@@ -26,6 +27,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   sysinternals `
   tor-browser `
   vcxsrv `
+  visualboyadvance `
   vivaldi.install `
   vlc `
   winpcap `
