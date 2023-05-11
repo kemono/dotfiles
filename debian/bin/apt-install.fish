@@ -66,6 +66,7 @@ set install_packages \
     nbtscan \
     ncrack \
     ncurses-dev \
+    netcat \
     nikto \
     nkf \
     nmap \

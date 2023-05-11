@@ -2,6 +2,7 @@
 
 set install_package \
     git+https://github.com/Tib3rius/AutoRecon.git \
+    scrap_engine \
     speedtest-cli \
     youtube-dl
 

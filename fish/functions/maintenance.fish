@@ -20,6 +20,7 @@ function maintenance
     omf update
     git -C ~/dotfiles fetch -p
     ~/dotfiles/debian/bin/pip-install.fish
+    ~/dotfiles/debian/tool/pokete.fish
     yes y | sudo -E lein upgrade
     lein ancient upgrade-profiles
 
