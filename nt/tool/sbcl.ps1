@@ -5,10 +5,10 @@ Set-Location C:\tmp
 
 # sbcl install
 $cli = New-Object System.Net.WebClient
-$uri = New-Object System.Uri("http://prdownloads.sourceforge.net/sbcl/sbcl-2.2.3-x86-64-windows-binary.msi")
+$uri = New-Object System.Uri("http://prdownloads.sourceforge.net/sbcl/sbcl-2.3.2-x86-64-windows-binary.msi")
 $file = Split-Path $uri.AbsolutePath -Leaf
 $cli.DownloadFile($uri, (Join-Path "C:\tmp\" $file))
-msiexec.exe /i c:\tmp\sbcl-2.2.3-x86-64-windows-binary.msi /passive /norestart
+msiexec.exe /i c:\tmp\sbcl-2.3.2-x86-64-windows-binary.msi /passive /norestart
 
 # SDL2 64bit install
 $cli = New-Object System.Net.WebClient

@@ -405,7 +405,6 @@
 ;; Completion setting
 (use-package helm
   :config
-  (require 'helm-config)
   (helm-mode 1)
   :bind
   (("M-y"   . 'helm-show-kill-ring)

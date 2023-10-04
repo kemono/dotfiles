@@ -11,7 +11,7 @@ if (!(Test-Path "~/quicklisp")) {
     $uri = New-Object System.Uri("https://beta.quicklisp.org/quicklisp.lisp")
     $file = Split-Path $uri.AbsolutePath -Leaf
     $cli.DownloadFile($uri, (Join-Path "C:\tmp\" $file))
-    C:\Program` Files\Steel` Bank` Common` Lisp\2.0.0\sbcl.exe --load quicklisp.lisp --eval "(progn (quicklisp-quickstart:install) (exit))"
+    C:\Program` Files\Steel` Bank` Common` Lisp\sbcl.exe --load quicklisp.lisp --eval "(progn (quicklisp-quickstart:install) (exit))"
 }
 
 cmd /c "mklink %userprofile%\.sbclrc C:\dotfiles\.sbclrc"
