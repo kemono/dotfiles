@@ -18,6 +18,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   qbittorrent `
   steam `
   sysinternals `
-  vivaldi.install
+  vivaldi.install `
+  vlc
 
 C:\ProgramData\chocolatey\bin\choco.exe upgrade all -y
