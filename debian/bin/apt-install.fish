@@ -99,6 +99,7 @@ set install_packages \
     traceroute \
     vim \
     vuls \
+    wakeonlan \
     wget \
     whatweb \
     whois \
