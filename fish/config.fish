@@ -81,11 +81,14 @@ alias fnaf-sl 'play-movie kXMwZNRiPe0'
 
 # music video
 alias beep-beep       'play-movie wCZFISvHmyY'
+alias bna-ed          'play-movie WWTFfEnMCCc'
+alias bna-op          'play-movie 3Okzra8Anr4'
 alias chosen          'play-movie aJgOdZN4HcA'
 alias civ4-intro      'play-movie ZRUnoGmwNCA'
 alias crysteena       'play-movie Yvvizr8wCvM'
 alias die-young       'play-movie GBpGs_aGa8A'
 alias gifted          'play-movie WZB7yswo6a0OA'
+alias happening       'play-movie JP2728BtJ34'
 alias let-it-happen   'play-movie pFptt7Cargc'
 alias midnight-7      'play-movie Mx2VGLNt7xk'
 alias no-mercy        'play-movie S9uTScSgzrM'
@@ -94,9 +97,6 @@ alias ppap            'play-movie Ct6BUPvE2sM'
 alias right-now       'play-movie 8ZSN56ghPig'
 alias wdtfs           'play-movie jofNR_WkoCE'
 alias winter-wrap-up  'play-movie L9BAeyZhAdE'
-
-alias bna-op          'play-movie 3Okzra8Anr4'
-alias bna-ed          'play-movie WWTFfEnMCCc'
 
 ## ------------------------------------------------------------------------
 ##                              Alias (Novel)
