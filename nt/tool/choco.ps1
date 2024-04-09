@@ -16,6 +16,8 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   protonvpn `
   python `
   qbittorrent `
+  r `
+  r.studio `
   steam `
   sysinternals `
   vivaldi.install `
