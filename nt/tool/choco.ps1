@@ -5,7 +5,6 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 C:\ProgramData\chocolatey\bin\choco.exe install -y `
   aimp `
   choco-cleaner `
-  discord `
   dnspy `
   emacs `
   git `
