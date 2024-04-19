@@ -14,7 +14,6 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   powershell-core `
   protonvpn `
   python `
-  qbittorrent `
   r `
   r.studio `
   steam `
