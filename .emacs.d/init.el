@@ -258,6 +258,28 @@
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 ;; ------------------------------------------------------------------------
+;;                              GitHub Copilot
+;; ------------------------------------------------------------------------
+
+(when (memq window-system '(w32))
+  (setenv "PATH" (concat "C:\\Program Files\\nodejs;" (getenv "PATH")))
+  (setq exec-path (append exec-path '("C:\\Program Files\\nodejs"))))
+
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :config
+  (add-hook 'prog-mode-hook 'copilot-mode)
+  (with-eval-after-load 'company
+    (defun my-copilot-tab ()
+      (interactive)
+      (or (copilot-accept-completion)
+          (company-indent-or-complete-common nil)))
+    (define-key copilot-completion-map (kbd "<tab>") 'my-copilot-tab)
+    (define-key copilot-completion-map (kbd "TAB") 'my-copilot-tab)
+    (define-key copilot-completion-map (kbd "<backtab>") 'company-select-previous)
+    (define-key copilot-completion-map (kbd "S-TAB") 'company-select-previous)))
+
+;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
 ;; ------------------------------------------------------------------------
 
@@ -310,11 +332,10 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (defun rainbow-delimiters-using-stronger-colors ()
     (interactive)
-    (cl-loop
-     for index from 1 to rainbow-delimiters-max-face-count
-     do
-     (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
-       (cl-callf color-saturate-name (face-foreground face) 30))))
+    (dotimes (index rainbow-delimiters-max-face-count)
+      (let* ((face (intern (format "rainbow-delimiters-depth-%d-face" (1+ index))))
+             (foreground (face-foreground face)))
+        (set-face-foreground face (color-saturate-name foreground 30)))))
   (add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors))
 
 ;; ------------------------------------------------------------------------
@@ -485,17 +506,18 @@
 (setq ring-bell-function 'ignore)
 
 ;; Highlight yank text
-(defadvice yank (after ys:highlight-string activate)
-  (let ((ol (make-overlay (mark t) (point))))
+(defun highlight-yank (start end)
+  (let ((ol (make-overlay start end)))
     (overlay-put ol 'face 'highlight)
-    (sit-for 0.5)
-    (delete-overlay ol)))
-(defadvice yank-pop (after ys:highlight-string activate)
-  (when (eq last-command 'yank)
-    (let ((ol (make-overlay (mark t) (point))))
-      (overlay-put ol 'face 'highlight)
-      (sit-for 0.5)
-      (delete-overlay ol))))
+    (run-with-timer 0.5 nil 'delete-overlay ol)))
+
+(advice-add 'yank :after
+            (lambda (&rest _)
+              (highlight-yank (mark t) (point))))
+(advice-add 'yank-pop :after
+            (lambda (&rest _)
+              (when (eq last-command 'yank)
+                (highlight-yank (mark t) (point)))))
 
 ;; Defined in external file (package-install-selected-packages)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

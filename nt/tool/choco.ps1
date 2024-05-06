@@ -10,6 +10,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   git `
   lein `
   libreoffice `
+  nodejs `
   openjdk `
   powershell-core `
   protonvpn `
