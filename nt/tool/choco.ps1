@@ -15,8 +15,6 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   powershell-core `
   protonvpn `
   python `
-  r `
-  r.studio `
   steam `
   sysinternals `
   vivaldi.install `
