@@ -5,12 +5,15 @@
 (setq package-native-compile t)
 (defvar bootstrap-version)
 (let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
   (unless (file-exists-p bootstrap-file)
     (with-current-buffer
         (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
          'silent 'inhibit-cookies)
       (goto-char (point-max))
       (eval-print-last-sexp)))
@@ -94,10 +97,10 @@
   (if (is-linux)
       (doom-modeline-def-modeline 'main
         '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
-        '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))
+        '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs))
     (doom-modeline-def-modeline 'main
       '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
-      '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs checker))))
+      '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs))))
 
 ;; ------------------------------------------------------------------------
 ;;                                Company
@@ -256,28 +259,6 @@
 (use-package go-eldoc
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
-
-;; ------------------------------------------------------------------------
-;;                              GitHub Copilot
-;; ------------------------------------------------------------------------
-
-(when (memq window-system '(w32))
-  (setenv "PATH" (concat "C:\\Program Files\\nodejs;" (getenv "PATH")))
-  (setq exec-path (append exec-path '("C:\\Program Files\\nodejs"))))
-
-(use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-  :config
-  (add-hook 'prog-mode-hook 'copilot-mode)
-  (with-eval-after-load 'company
-    (defun my-copilot-tab ()
-      (interactive)
-      (or (copilot-accept-completion)
-          (company-indent-or-complete-common nil)))
-    (define-key copilot-completion-map (kbd "<tab>") 'my-copilot-tab)
-    (define-key copilot-completion-map (kbd "TAB") 'my-copilot-tab)
-    (define-key copilot-completion-map (kbd "<backtab>") 'company-select-previous)
-    (define-key copilot-completion-map (kbd "S-TAB") 'company-select-previous)))
 
 ;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
