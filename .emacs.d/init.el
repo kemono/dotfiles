@@ -2,7 +2,12 @@
 ;;                                Init Load
 ;; ------------------------------------------------------------------------
 
-(setq package-native-compile t)
+;; Use native compilation for better performance
+(when (fboundp 'native-comp-available-p)
+  (setq native-comp-speed 2)
+  (setq package-native-compile t))
+
+;; Use straight.el for package management
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -28,20 +33,19 @@
 
 (use-package paredit)
 (use-package subword)
-(use-package eldoc)
+(use-package eglot)
 (defun hook-lisp (mode-name)
   "Add lisp utility modes"
-  (-map (lambda (hook-mode-name)
-          (add-hook mode-name hook-mode-name))
-        '(enable-paredit-mode
-          subword-mode
-          eldoc-mode)))
+  (dolist (hook-mode-name '(enable-paredit-mode
+                            subword-mode
+                            eglot-ensure))
+    (add-hook mode-name hook-mode-name)))
 
 ;; Feeling good selection range
 (use-package expand-region
   :bind
-  (("C-@" . 'er/expand-region)
-   ("C-M-@" . 'er/contract-region)))
+  (("C-=" . 'er/expand-region)
+   ("C-M-=" . 'er/contract-region)))
 
 ;; Disable bar
 (menu-bar-mode -1)
@@ -94,13 +98,9 @@
   :config
   (line-number-mode 0)
   (column-number-mode 0)
-  (if (is-linux)
-      (doom-modeline-def-modeline 'main
-        '(bar workspace-number window-number evil-state god-state ryo-modal xah-fly-keys matches buffer-info remote-host buffer-position parrot selection-info)
-        '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs))
-    (doom-modeline-def-modeline 'main
-      '(bar window-number matches buffer-info remote-host buffer-position parrot selection-info)
-      '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs))))
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info persp-name lsp github debug minor-modes input-method major-mode process vcs)))
 
 ;; ------------------------------------------------------------------------
 ;;                                Company
@@ -418,22 +418,27 @@
    ("TAB"   . 'helm-execute-persistent-action)))
 
 ;; Completion setting
-(use-package ivy
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 30)
-  (setq ivy-extra-directories nil)
-  (setq ivy-re-builders-alist
-        '((t . ivy--regex-plus))))
+(use-package vertico
+  :init
+  (vertico-mode)
+  :custom
+  (vertico-count 20)
+  (vertico-resize t)
+  (vertico-cycle t))
 
-;; Completion setting (so good M-x)
-(use-package counsel
-  :config (defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
+;; Use consult instead of counsel
+(use-package consult
   :bind
-  (("M-x" . 'counsel-M-x)
-   ("C-x C-f" . 'counsel-find-file)))
+  (("C-s" . consult-line)
+   ("C-x b" . consult-buffer)
+   ("M-y" . consult-yank-pop)
+   ("M-g g" . consult-goto-line)))
+
+;; Use orderless for flexible completion style
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; Completion setting (fuzzy)
 (use-package fuzzy)
@@ -460,8 +465,11 @@
 ;; ------------------------------------------------------------------------
 
 ;; View git diff
-(use-package git-gutter
-  :config (global-git-gutter-mode t))
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode)
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
 
 (use-package git-complete
   :straight (:host github :repo "zk-phi/git-complete"))
