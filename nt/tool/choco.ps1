@@ -8,6 +8,7 @@ C:\ProgramData\chocolatey\bin\choco.exe install -y `
   dnspy `
   emacs `
   git `
+  irfanview `
   lein `
   libreoffice `
   nodejs `
