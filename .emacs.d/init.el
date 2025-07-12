@@ -248,7 +248,7 @@
   :config
   (add-hook 'go-mode-hook
             (lambda ()
-              (add-hook 'before-save-hook' 'gofmt-before-save)
+              (add-hook 'before-save-hook 'gofmt-before-save)
               (local-set-key (kbd "M-.") 'godef-jump)
               (set (make-local-variable 'company-backends) '(company-go))
               (company-mode)
@@ -413,8 +413,6 @@
    ("C-c i" . 'helm-imenu)
    ("C-x b" . 'helm-buffers-list)
    ("C-h"   . 'delete-backward-char)
-   ("C-h"   . 'delete-backward-char)
-   ("TAB"   . 'helm-execute-persistent-action)
    ("TAB"   . 'helm-execute-persistent-action)))
 
 ;; Completion setting
@@ -445,7 +443,7 @@
 
 ;; Find file or directory
 (use-package helm-ag
-  :config (setq helm-ag-base-command "ag --nocolor --nogrou")
+  :config (setq helm-ag-base-command "ag --nocolor --nogroup")
   :bind (("C-c s" . 'helm-ag)))
 
 ;; Search file name in project
