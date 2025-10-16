@@ -4,8 +4,8 @@
 
 ;; Use native compilation for better performance
 (when (fboundp 'native-comp-available-p)
-  (setq native-comp-speed 2)
-  (setq package-native-compile t))
+  (setq native-comp-speed 2
+        package-native-compile t))
 
 ;; Use straight.el for package management
 (defvar bootstrap-version)
@@ -44,8 +44,8 @@
 ;; Feeling good selection range
 (use-package expand-region
   :bind
-  (("C-=" . 'er/expand-region)
-   ("C-M-=" . 'er/contract-region)))
+  (("C-=" . er/expand-region)
+   ("C-M-=" . er/contract-region)))
 
 ;; Disable bar
 (menu-bar-mode -1)
@@ -113,13 +113,13 @@
   (setq company-global-modes
         '(not slime-mode slime-repl-mode lisp-mode))
   :config
-  (setq company-auto-expand t)
-  (setq company-dabbrev-downcase nil)
-  (setq company-idle-delay 0)
-  (setq company-minimum-prefix-length 2)
-  (setq company-selection-wrap-around t)
-  (setq company-transformers '(company-sort-by-backend-importance))
-  (setq completion-ignore-case t)
+  (setq company-auto-expand t
+        company-dabbrev-downcase nil
+        company-idle-delay 0
+        company-minimum-prefix-length 2
+        company-selection-wrap-around t
+        company-transformers '(company-sort-by-backend-importance)
+        completion-ignore-case t)
 
   (defun company--insert-candidate2 (candidate)
     (when (> (length candidate) 0)
@@ -137,8 +137,8 @@
                (equal company-common (car company-candidates)))
           (company-complete-selection)
         (company--insert-candidate2 company-common))))
-  (define-key company-active-map [tab] 'company-complete-common2)
-  (define-key company-active-map [backtab] 'company-select-previous))
+  (define-key company-active-map [tab] #'company-complete-common2)
+  (define-key company-active-map [backtab] #'company-select-previous))
 
 ;; ------------------------------------------------------------------------
 ;;                              Common Lisp
@@ -148,8 +148,8 @@
 (use-package slime
   :config
   (slime-setup '(slime-repl slime-fancy slime-banner))
-  (setq inferior-lisp-program "sbcl")
-  (setq slime-net-coding-system 'utf-8-unix)
+  (setq inferior-lisp-program "sbcl"
+        slime-net-coding-system 'utf-8-unix)
   (slime-autodoc-mode)
 
   (use-package popwin
@@ -166,12 +166,12 @@
 
   (use-package ac-slime
     :config
-    (add-hook 'slime-mode-hook 'auto-complete-mode)
-    (add-hook 'slime-mode-hook 'set-up-slime-ac)
-    (add-hook 'slime-repl-mode-hook 'auto-complete-mode)
-    (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-    (add-hook 'lisp-mode-hook 'auto-complete-mode)
-    (add-hook 'lisp-mode-hook 'set-up-slime-ac))
+    (add-hook 'slime-mode-hook #'auto-complete-mode)
+    (add-hook 'slime-mode-hook #'set-up-slime-ac)
+    (add-hook 'slime-repl-mode-hook #'auto-complete-mode)
+    (add-hook 'slime-repl-mode-hook #'set-up-slime-ac)
+    (add-hook 'lisp-mode-hook #'auto-complete-mode)
+    (add-hook 'lisp-mode-hook #'set-up-slime-ac))
 
   ;; Other hook add
   (hook-lisp 'lisp-mode-hook)
@@ -228,11 +228,10 @@
     "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
     (let ((depth (get-text-property 0 'depth candidate)))
       (if (eq depth nil) 0 depth)))
-  (add-hook 'js2-mode-hook 'tern-mode)
+  (add-hook 'js2-mode-hook #'tern-mode)
   (add-to-list 'company-backends 'company-tern))
 
 (use-package lsp-mode
-  :ensure t
   :commands (lsp lsp-deferred)
   :hook (js-mode . lsp-deferred))
 
@@ -248,17 +247,17 @@
   :config
   (add-hook 'go-mode-hook
             (lambda ()
-              (add-hook 'before-save-hook 'gofmt-before-save)
-              (local-set-key (kbd "M-.") 'godef-jump)
+              (add-hook 'before-save-hook #'gofmt-before-save nil t)
+              (local-set-key (kbd "M-.") #'godef-jump)
               (set (make-local-variable 'company-backends) '(company-go))
               (company-mode)
-              (setq indent-tabs-mode nil)
-              (setq c-basic-offset 4)
-              (setq tab-width 4))))
+              (setq indent-tabs-mode nil
+                    c-basic-offset 4
+                    tab-width 4))))
 
 (use-package go-eldoc
   :config
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+  (add-hook 'go-mode-hook #'go-eldoc-setup))
 
 ;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
@@ -273,19 +272,18 @@
 (use-package eww
   :config
 
-  ;; Disable background and txet color
+  ;; Disable background and text color
   (defvar eww-disable-colorize t)
   (defun shr-colorize-region--disable (orig start end fg &optional bg &rest _)
     (unless eww-disable-colorize
       (funcall orig start end fg)))
-  (advice-add 'shr-colorize-region :around 'shr-colorize-region--disable)
-  (advice-add 'eww-colorize-region :around 'shr-colorize-region--disable)
+  (advice-add 'shr-colorize-region :around #'shr-colorize-region--disable)
+  (advice-add 'eww-colorize-region :around #'shr-colorize-region--disable)
 
   ;; Set default browser (EWW)
-  (setq browse-url-browser-function 'eww-browse-url)
-
-  ;; disable header
-  (setq eww-header-line-format nil))
+  (setq browse-url-browser-function 'eww-browse-url
+        ;; disable header
+        eww-header-line-format nil))
 
 ;; ------------------------------------------------------------------------
 ;;                          Syntax Check
@@ -297,27 +295,27 @@
 ;; Highlight symbol setting
 (use-package highlight-symbol
   :config
-  (global-set-key [(control f3)] 'highlight-symbol-at-point)
-  (global-set-key [f3] 'highlight-symbol-next)
-  (global-set-key [(shift f3)] 'highlight-symbol-prev)
-  (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+  (global-set-key (kbd "<C-f3>") #'highlight-symbol-at-point)
+  (global-set-key (kbd "<f3>") #'highlight-symbol-next)
+  (global-set-key (kbd "<S-f3>") #'highlight-symbol-prev)
+  (global-set-key (kbd "<M-f3>") #'highlight-symbol-query-replace)
   (setq highlight-symbol-idle-delay 0)
-  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-  (add-hook 'prog-mode-hook 'highlight-symbol-nav-mode)
-  :bind (("M-s M-r" . 'highlight-symbol-query-replace)))
+  (add-hook 'prog-mode-hook #'highlight-symbol-mode)
+  (add-hook 'prog-mode-hook #'highlight-symbol-nav-mode)
+  :bind (("M-s M-r" . highlight-symbol-query-replace)))
 
 ;; Rainbow delimiters setting
 (use-package color)
 (use-package rainbow-delimiters
   :config
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   (defun rainbow-delimiters-using-stronger-colors ()
     (interactive)
     (dotimes (index rainbow-delimiters-max-face-count)
       (let* ((face (intern (format "rainbow-delimiters-depth-%d-face" (1+ index))))
              (foreground (face-foreground face)))
         (set-face-foreground face (color-saturate-name foreground 30)))))
-  (add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors))
+  (add-hook 'emacs-startup-hook #'rainbow-delimiters-using-stronger-colors))
 
 ;; ------------------------------------------------------------------------
 ;;                              History
@@ -326,7 +324,7 @@
 ;; Add minor packages
 (use-package redo+
   :straight (:host github :repo "emacsmirror/redo-plus")
-  :bind (("C-?" . 'redo)))
+  :bind (("C-?" . redo)))
 
 ;; All indent
 (use-package point-undo
@@ -335,9 +333,9 @@
   (defun all-indent ()
     (interactive)
     (mark-whole-buffer)
-    (indent-region (region-beginning)(region-end))
+    (indent-region (region-beginning) (region-end))
     (point-undo))
-  :bind (( "C-x C-]" . 'all-indent)))
+  :bind (("C-x C-]" . all-indent)))
 
 ;; Redo
 (setq undo-no-redo t)
@@ -361,29 +359,30 @@
 (use-package smartrep
   :config
   (declare-function smartrep-define-key "smartrep")
-  (global-unset-key "\C-t")
+  (global-unset-key (kbd "C-t"))
   (smartrep-define-key global-map "C-t"
-    '(("C-t"      . 'mc/mark-next-like-this)
-      ("n"        . 'mc/mark-next-like-this)
-      ("p"        . 'mc/mark-previous-like-this)
-      ("m"        . 'mc/mark-more-like-this-extended)
-      ("u"        . 'mc/unmark-next-like-this)
-      ("U"        . 'mc/unmark-previous-like-this)
-      ("s"        . 'mc/skip-to-next-like-this)
-      ("S"        . 'mc/skip-to-previous-like-this)
-      ("*"        . 'mc/mark-all-like-this)
-      ("d"        . 'mc/mark-all-like-this-dwim)
-      ("i"        . 'mc/insert-numbers)
-      ("o"        . 'mc/sort-regions)
-      ("O"        . 'mc/reverse-regions)))
+    '(("C-t"      . mc/mark-next-like-this)
+      ("n"        . mc/mark-next-like-this)
+      ("p"        . mc/mark-previous-like-this)
+      ("m"        . mc/mark-more-like-this-extended)
+      ("u"        . mc/unmark-next-like-this)
+      ("U"        . mc/unmark-previous-like-this)
+      ("s"        . mc/skip-to-next-like-this)
+      ("S"        . mc/skip-to-previous-like-this)
+      ("*"        . mc/mark-all-like-this)
+      ("d"        . mc/mark-all-like-this-dwim)
+      ("i"        . mc/insert-numbers)
+      ("o"        . mc/sort-regions)
+      ("O"        . mc/reverse-regions)))
   :bind
-  (("C-M-c" . 'mc/edit-lines)
-   ("C-M-r" . 'mc/mark-all-in-region)))
+  (("C-M-c" . mc/edit-lines)
+   ("C-M-r" . mc/mark-all-in-region)))
 
 ;; Vim mode
 (use-package evil
-  :config (evil-mode 1)
-  (setq evil-default-state 'emacs))
+  :config
+  (setq evil-default-state 'emacs)
+  (evil-mode 1))
 
 ;; Nyan mode !!
 (use-package nyan-mode
@@ -392,30 +391,33 @@
   (nyan-start-animation))
 
 ;; Display EOL
-(setq eol-mnemonic-dos "(CRLF)")
-(setq eol-mnemonic-mac "(CR)")
-(setq eol-mnemonic-unix "(LF)")
+(setq eol-mnemonic-dos "(CRLF)"
+      eol-mnemonic-mac "(CR)"
+      eol-mnemonic-unix "(LF)")
 
 ;; Jump cursor
 (use-package ace-jump-mode
-  :bind (("C-c SPC" . 'ace-jump-mode)))
+  :bind (("C-c SPC" . ace-jump-mode)))
 
 ;; Case-insensitive
-(setq completion-ignore-case t)
-(setq read-file-name-completion-ignore-case t)
+(setq completion-ignore-case t
+      read-file-name-completion-ignore-case t)
 
-;; Completion setting
+;; Completion setting (Helm)
+;; NOTE: Helm and Vertico are both enabled - this may cause conflicts.
+;; Consider using only one completion framework.
 (use-package helm
   :config
   (helm-mode 1)
   :bind
-  (("M-y"   . 'helm-show-kill-ring)
-   ("C-c i" . 'helm-imenu)
-   ("C-x b" . 'helm-buffers-list)
-   ("C-h"   . 'delete-backward-char)
-   ("TAB"   . 'helm-execute-persistent-action)))
+  (("M-y"   . helm-show-kill-ring)
+   ("C-c i" . helm-imenu)
+   ("C-x b" . helm-buffers-list)
+   ("C-h"   . delete-backward-char)
+   ("TAB"   . helm-execute-persistent-action)))
 
-;; Completion setting
+;; Completion setting (Vertico)
+;; NOTE: This may conflict with Helm above
 (use-package vertico
   :init
   (vertico-mode)
@@ -444,11 +446,11 @@
 ;; Find file or directory
 (use-package helm-ag
   :config (setq helm-ag-base-command "ag --nocolor --nogroup")
-  :bind (("C-c s" . 'helm-ag)))
+  :bind (("C-c s" . helm-ag)))
 
 ;; Search file name in project
 (use-package find-file-in-project
-  :config (global-set-key [(super shift i)] 'find-file-in-project))
+  :config (global-set-key (kbd "s-I") #'find-file-in-project))
 
 ;; Add Emacs Lisp utility modes
 (hook-lisp 'emacs-lisp-mode-hook)
@@ -466,37 +468,37 @@
 (use-package diff-hl
   :config
   (global-diff-hl-mode)
-  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+  (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
 
 (use-package git-complete
   :straight (:host github :repo "zk-phi/git-complete"))
 
 (use-package fish-mode
-  :mode (("\\.fish$" . fish-mode)))
+  :mode "\\.fish\\'")
 
-;; Not crete backup files
-(setq auto-save-default nil)
-(setq auto-save-list-file-name nil)
-(setq auto-save-list-file-prefix nil)
-(setq backup-inhibited t)
-(setq create-lockfiles nil)
-(setq make-backup-files nil)
-(setq version-control nil)
+;; Not create backup files
+(setq auto-save-default nil
+      auto-save-list-file-name nil
+      auto-save-list-file-prefix nil
+      backup-inhibited t
+      create-lockfiles nil
+      make-backup-files nil
+      version-control nil)
 
-;; If file head line is #', add excution authority
+;; If file head line is #!, add execution authority
 (add-hook 'after-save-hook
-          'executable-make-buffer-file-executable-if-script-p)
+          #'executable-make-buffer-file-executable-if-script-p)
 
 ;; Disable beep sound
-(setq visible-bell t)
-(setq ring-bell-function 'ignore)
+(setq visible-bell t
+      ring-bell-function 'ignore)
 
 ;; Highlight yank text
 (defun highlight-yank (start end)
   (let ((ol (make-overlay start end)))
     (overlay-put ol 'face 'highlight)
-    (run-with-timer 0.5 nil 'delete-overlay ol)))
+    (run-with-timer 0.5 nil #'delete-overlay ol)))
 
 (advice-add 'yank :after
             (lambda (&rest _)
@@ -529,26 +531,24 @@
 (use-package markdown-mode)
 
 ;; Truncate setting (set Disable)
-(setq truncate-lines nil)
-(setq truncate-partial-width-windows nil)
+(setq truncate-lines nil
+      truncate-partial-width-windows nil)
 
-(add-hook 'before-save-hook 'all-indent) ; Auto indent when before save
-(add-hook 'before-save-hook 'delete-trailing-whitespace) ; Remove tail space when before save
-(add-hook 'comint-output-filter-functions 'comint-watch-for-password-prompt) ; Hide password
-(delete 'mode-line-modes mode-line-format) ; Hide monde name
-(fset 'yes-or-no-p 'y-or-n-p) ; "yes or no" -> "y or n"
+(add-hook 'before-save-hook #'all-indent) ; Auto indent when before save
+(add-hook 'before-save-hook #'delete-trailing-whitespace) ; Remove tail space when before save
+(add-hook 'comint-output-filter-functions #'comint-watch-for-password-prompt) ; Hide password
+(delete 'mode-line-modes mode-line-format) ; Hide mode name
+(defalias 'yes-or-no-p 'y-or-n-p) ; "yes or no" -> "y or n"
 (global-auto-revert-mode 1) ; Auto reload buffer
-(global-font-lock-mode t) ; Highlight keyword color
-(global-set-key "\C-x\C-b" 'bs-show) ; Better display buffer list
-(global-set-key [f5] 'redraw-display)
-(global-set-key [f8] 'neotree-toggle) ; Open Directory tree
-(icomplete-mode 1) ;Alway display completion candidate
+(global-set-key (kbd "C-x C-b") #'bs-show) ; Better display buffer list
+(global-set-key (kbd "<f5>") #'redraw-display)
+(global-set-key (kbd "<f8>") #'neotree-toggle) ; Open Directory tree
+(icomplete-mode 1) ; Always display completion candidate
 (set-frame-parameter nil 'alpha 85) ; Transparency
-(setq delete-auto-save-files t) ; Delete auto save file when exiting
-(setq inhibit-startup-echo-area-message -1) ; Disable echo alia
-(setq inhibit-startup-message t) ; Disable start-up message
-(setq kill-whole-line t) ; C-k delete line
-(setq-default indent-tabs-mode nil) ; Disable tab
-(setq-default tab-width 2 indent-tabs-mode nil) ; Tab is 2 whitespace
-(setq-default transient-mark-mode t) ; Highlight selection range
+(setq delete-auto-save-files t ; Delete auto save file when exiting
+      inhibit-startup-echo-area-message -1 ; Disable echo area
+      inhibit-startup-message t ; Disable start-up message
+      kill-whole-line t) ; C-k delete line
+(setq-default indent-tabs-mode nil ; Disable tab
+              tab-width 2) ; Tab is 2 whitespace
 (size-indication-mode t) ; Display filesize
