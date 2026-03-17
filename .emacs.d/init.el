@@ -242,22 +242,30 @@
 (when (file-directory-p "~/go/bin/")
   (add-to-list 'exec-path (expand-file-name "~/go/bin/")))
 
-(use-package company-go)
 (use-package go-mode
+  :ensure t
   :config
+  ;; gofmt before save
+  (add-hook 'before-save-hook #'gofmt-before-save nil t)
+
+  ;; key bindings
   (add-hook 'go-mode-hook
             (lambda ()
-              (add-hook 'before-save-hook #'gofmt-before-save nil t)
-              (local-set-key (kbd "M-.") #'godef-jump)
-              (set (make-local-variable 'company-backends) '(company-go))
-              (company-mode)
-              (setq indent-tabs-mode nil
-                    c-basic-offset 4
-                    tab-width 4))))
+              (local-set-key (kbd "M-.") #'godef-jump)))
 
-(use-package go-eldoc
-  :config
+  ;; company-mode setup
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (setq-local company-backends '(company-go))
+              (company-mode 1)))
+
+  ;; eldoc
   (add-hook 'go-mode-hook #'go-eldoc-setup))
+
+(use-package company-go
+  :ensure t
+  :init
+  (add-hook 'go-mode-hook #'company-go-init))
 
 ;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
