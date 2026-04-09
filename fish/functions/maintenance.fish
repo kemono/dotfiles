@@ -23,6 +23,7 @@ function maintenance
     ~/dotfiles/debian/tool/pokete.fish
     yes y | sudo -E lein upgrade
     lein ancient upgrade-profiles
+    sudo yt-dlp --update
 
     # remove unused files (home directory)
     rm -rf ~/tmp/dotfiles
