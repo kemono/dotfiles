@@ -1,4 +1,4 @@
-# This sites is not important my life.
+﻿# This sites is not important my life.
 # Waste of time, Troublesome, etc...
 
 127.0.0.1 0726.biz
@@ -274,3 +274,10 @@
 127.0.0.1 www.zjrwmuoutlet.xyz
 127.0.0.1 yaraon-blog.com
 127.0.0.1 yaraon.blog109.fc2.com
+
+# Added by Docker Desktop
+192.168.11.2 host.docker.internal
+192.168.11.2 gateway.docker.internal
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section

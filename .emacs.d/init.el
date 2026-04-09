@@ -44,8 +44,8 @@
 ;; Feeling good selection range
 (use-package expand-region
   :bind
-  (("C-=" . er/expand-region)
-   ("C-M-=" . er/contract-region)))
+  (("C-@" . 'er/expand-region)
+   ("C-M-@" . 'er/contract-region)))
 
 ;; Disable bar
 (menu-bar-mode -1)
