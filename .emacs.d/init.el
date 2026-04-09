@@ -2,6 +2,14 @@
 ;;                                Init Load
 ;; ------------------------------------------------------------------------
 
+;; Suppress menu bar / tool bar / scroll bar at frame-creation time.
+;; On Linux (GTK) builds the initial frame can be created before
+;; `menu-bar-mode -1' runs, so setting these in `default-frame-alist'
+;; early ensures the frame never has a menu bar to begin with.
+(push '(menu-bar-lines . 0) default-frame-alist)
+(push '(tool-bar-lines . 0) default-frame-alist)
+(push '(vertical-scroll-bars) default-frame-alist)
+
 ;; Use native compilation for better performance
 (when (fboundp 'native-comp-available-p)
   (setq native-comp-speed 2
