@@ -7,32 +7,61 @@
   (setq native-comp-speed 2
         package-native-compile t))
 
-;; Use straight.el for package management
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; Package management (built-in package.el + MELPA)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
-;; use-package
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+;; use-package (built-in since Emacs 29, install from MELPA for Emacs 28)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; Helper: install package from GitHub (works on Emacs 28+)
+(defun my/ensure-package-from-github (package url)
+  "Install PACKAGE from GitHub URL if not already installed.
+Uses package-vc-install on Emacs 29+, git clone on Emacs 28."
+  (unless (package-installed-p package)
+    (if (fboundp 'package-vc-install)
+        (package-vc-install url)
+      (let ((dir (expand-file-name (symbol-name package)
+                                   (expand-file-name "github-packages"
+                                                     user-emacs-directory))))
+        (unless (file-directory-p dir)
+          (make-directory (file-name-directory dir) t)
+          (call-process "git" nil nil nil "clone" url dir))
+        (add-to-list 'load-path dir)))))
+
+;; Helper: install a package from GitHub purely via `git clone` and add its
+;; directory to `load-path'. This is a safer alternative for old packages
+;; whose headers use RCS-style version strings (e.g. "$Id: foo.el,v 1.6 ...")
+;; which `package-vc-install' cannot parse and which therefore cause
+;; `package-installed-p' to keep returning nil, triggering reinstall prompts
+;; on every Emacs startup.
+(defun my/ensure-github-loadpath (package url)
+  "Ensure PACKAGE from GitHub URL is available via `load-path'.
+Clones URL into <user-emacs-directory>/github-packages/PACKAGE with
+plain git, bypassing package.el entirely. If the package's main
+library can already be located via `locate-library', nothing is
+cloned and the function is a no-op."
+  (unless (locate-library (symbol-name package))
+    (let* ((base-dir (expand-file-name "github-packages" user-emacs-directory))
+           (dir (expand-file-name (symbol-name package) base-dir)))
+      (unless (file-directory-p base-dir)
+        (make-directory base-dir t))
+      (unless (file-directory-p dir)
+        (message "Cloning %s from %s..." package url)
+        (call-process "git" nil nil nil "clone" "--depth" "1" url dir))
+      (add-to-list 'load-path dir))))
 
 ;; Emacs lisp utility functions
 (use-package dash)
 
 (use-package paredit)
-(use-package subword)
+(use-package subword :ensure nil)
 (use-package eglot)
 (defun hook-lisp (mode-name)
   "Add lisp utility modes"
@@ -70,7 +99,7 @@
     :init (exec-path-from-shell-initialize)))
 
 (when (is-mac)
-  (use-package ucs-normalize)
+  (use-package ucs-normalize :ensure nil)
   (set-file-name-coding-system 'utf-8-hfs))
 
 (when (is-windows)
@@ -221,15 +250,18 @@
 
 (use-package skewer-mode)
 
-(use-package company-tern
-  :config
-  (setq company-tern-property-marker "")
-  (defun company-tern-depth (candidate)
-    "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
-    (let ((depth (get-text-property 0 'depth candidate)))
-      (if (eq depth nil) 0 depth)))
-  (add-hook 'js2-mode-hook #'tern-mode)
-  (add-to-list 'company-backends 'company-tern))
+;; company-tern is obsolete and has been removed from MELPA (tern is no longer
+;; maintained). JavaScript completion is now handled by lsp-mode (configured
+;; below) together with company-mode, so this block is disabled.
+;; (use-package company-tern
+;;   :config
+;;   (setq company-tern-property-marker "")
+;;   (defun company-tern-depth (candidate)
+;;     "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
+;;     (let ((depth (get-text-property 0 'depth candidate)))
+;;       (if (eq depth nil) 0 depth)))
+;;   (add-hook 'js2-mode-hook #'tern-mode)
+;;   (add-to-list 'company-backends 'company-tern))
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -243,7 +275,6 @@
   (add-to-list 'exec-path (expand-file-name "~/go/bin/")))
 
 (use-package go-mode
-  :ensure t
   :config
   ;; gofmt before save
   (add-hook 'before-save-hook #'gofmt-before-save nil t)
@@ -263,7 +294,6 @@
   (add-hook 'go-mode-hook #'go-eldoc-setup))
 
 (use-package company-go
-  :ensure t
   :init
   (add-hook 'go-mode-hook #'company-go-init))
 
@@ -278,6 +308,7 @@
 ;; ------------------------------------------------------------------------
 
 (use-package eww
+  :ensure nil
   :config
 
   ;; Disable background and text color
@@ -297,8 +328,9 @@
 ;;                          Syntax Check
 ;; ------------------------------------------------------------------------
 
+(my/ensure-package-from-github 'highlight-cl "https://github.com/emacsmirror/highlight-cl")
 (use-package highlight-cl
-  :straight (:host github :repo "emacsmirror/highlight-cl"))
+  :ensure nil)
 
 ;; Highlight symbol setting
 (use-package highlight-symbol
@@ -313,7 +345,7 @@
   :bind (("M-s M-r" . highlight-symbol-query-replace)))
 
 ;; Rainbow delimiters setting
-(use-package color)
+(use-package color :ensure nil)
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -330,13 +362,18 @@
 ;; ------------------------------------------------------------------------
 
 ;; Add minor packages
+;; NOTE: redo+ and point-undo ship with RCS-style ($Id$) version strings that
+;; package-vc-install cannot parse, so we install them via plain `git clone'
+;; and load them directly from `load-path' instead of through package.el.
+(my/ensure-github-loadpath 'redo+ "https://github.com/emacsmirror/redo-plus")
 (use-package redo+
-  :straight (:host github :repo "emacsmirror/redo-plus")
+  :ensure nil
   :bind (("C-?" . redo)))
 
 ;; All indent
+(my/ensure-github-loadpath 'point-undo "https://github.com/emacsmirror/point-undo")
 (use-package point-undo
-  :straight (:host github :repo "emacsmirror/point-undo")
+  :ensure nil
   :config
   (defun all-indent ()
     (interactive)
@@ -412,8 +449,6 @@
       read-file-name-completion-ignore-case t)
 
 ;; Completion setting (Helm)
-;; NOTE: Helm and Vertico are both enabled - this may cause conflicts.
-;; Consider using only one completion framework.
 (use-package helm
   :config
   (helm-mode 1)
@@ -424,37 +459,16 @@
    ("C-h"   . delete-backward-char)
    ("TAB"   . helm-execute-persistent-action)))
 
-;; Completion setting (Vertico)
-;; NOTE: This may conflict with Helm above
-(use-package vertico
-  :init
-  (vertico-mode)
-  :custom
-  (vertico-count 20)
-  (vertico-resize t)
-  (vertico-cycle t))
-
-;; Use consult instead of counsel
-(use-package consult
-  :bind
-  (("C-s" . consult-line)
-   ("C-x b" . consult-buffer)
-   ("M-y" . consult-yank-pop)
-   ("M-g g" . consult-goto-line)))
-
-;; Use orderless for flexible completion style
-(use-package orderless
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
-
 ;; Completion setting (fuzzy)
 (use-package fuzzy)
 
 ;; Find file or directory
-(use-package helm-ag
-  :config (setq helm-ag-base-command "ag --nocolor --nogroup")
-  :bind (("C-c s" . helm-ag)))
+;; Replaces the unmaintained helm-ag with deadgrep, a ripgrep-backed search
+;; tool that is actively maintained on MELPA. Requires the `rg' binary to
+;; be available on PATH. On Windows you can install it with
+;; `scoop install ripgrep' or `choco install ripgrep'.
+(use-package deadgrep
+  :bind (("C-c s" . deadgrep)))
 
 ;; Search file name in project
 (use-package find-file-in-project
@@ -479,8 +493,9 @@
   (add-hook 'magit-pre-refresh-hook #'diff-hl-magit-pre-refresh)
   (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh))
 
+(my/ensure-package-from-github 'git-complete "https://github.com/zk-phi/git-complete")
 (use-package git-complete
-  :straight (:host github :repo "zk-phi/git-complete"))
+  :ensure nil)
 
 (use-package fish-mode
   :mode "\\.fish\\'")
@@ -523,6 +538,7 @@
 
 ;; Highlight corresponding parenthesis
 (use-package paren
+  :ensure nil
   :custom
   (show-paren-style 'mixed)
   (show-paren-when-point-inside-paren t)
@@ -560,3 +576,16 @@
 (setq-default indent-tabs-mode nil ; Disable tab
               tab-width 2) ; Tab is 2 whitespace
 (size-indication-mode t) ; Display filesize
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-vc-selected-packages
+   '((helm-ag :vc-backend Git :url "https://github.com/emacsorphanage/helm-ag"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
