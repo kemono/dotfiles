@@ -3,7 +3,7 @@
 	name = kemono
 
 [core]
-	editor = vi
+	editor = vim
 	precomposeunicode = true
 	quotepath = false
 
