@@ -258,19 +258,6 @@ cloned and the function is a no-op."
 
 (use-package skewer-mode)
 
-;; company-tern is obsolete and has been removed from MELPA (tern is no longer
-;; maintained). JavaScript completion is now handled by lsp-mode (configured
-;; below) together with company-mode, so this block is disabled.
-;; (use-package company-tern
-;;   :config
-;;   (setq company-tern-property-marker "")
-;;   (defun company-tern-depth (candidate)
-;;     "Return depth attribute for CANDIDATE. 'nil' entries are treated as 0."
-;;     (let ((depth (get-text-property 0 'depth candidate)))
-;;       (if (eq depth nil) 0 depth)))
-;;   (add-hook 'js2-mode-hook #'tern-mode)
-;;   (add-to-list 'company-backends 'company-tern))
-
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :hook (js-mode . lsp-deferred))
@@ -369,10 +356,6 @@ cloned and the function is a no-op."
 ;;                              History
 ;; ------------------------------------------------------------------------
 
-;; Add minor packages
-;; NOTE: redo+ and point-undo ship with RCS-style ($Id$) version strings that
-;; package-vc-install cannot parse, so we install them via plain `git clone'
-;; and load them directly from `load-path' instead of through package.el.
 (my/ensure-github-loadpath 'redo+ "https://github.com/emacsmirror/redo-plus")
 (use-package redo+
   :ensure nil
@@ -471,10 +454,6 @@ cloned and the function is a no-op."
 (use-package fuzzy)
 
 ;; Find file or directory
-;; Replaces the unmaintained helm-ag with deadgrep, a ripgrep-backed search
-;; tool that is actively maintained on MELPA. Requires the `rg' binary to
-;; be available on PATH. On Windows you can install it with
-;; `scoop install ripgrep' or `choco install ripgrep'.
 (use-package deadgrep
   :bind (("C-c s" . deadgrep)))
 
@@ -584,16 +563,8 @@ cloned and the function is a no-op."
 (setq-default indent-tabs-mode nil ; Disable tab
               tab-width 2) ; Tab is 2 whitespace
 (size-indication-mode t) ; Display filesize
+
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(package-vc-selected-packages
    '((helm-ag :vc-backend Git :url "https://github.com/emacsorphanage/helm-ag"))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(custom-set-faces )
