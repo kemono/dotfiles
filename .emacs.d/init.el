@@ -120,7 +120,7 @@ cloned and the function is a no-op."
 
 (use-package doom-themes
   :config
-  (load-theme 'doom-Iosvkem t)
+  (load-theme 'doom-monokai-pro t)
   (doom-themes-neotree-config)
   (doom-themes-org-config))
 
