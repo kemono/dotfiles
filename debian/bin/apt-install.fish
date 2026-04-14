@@ -18,6 +18,7 @@ set install_packages \
     default-jdk \
     default-jre \
     dnsutils \
+    docker-compose \
     enum4linux \
     feroxbuster \
     ffmpeg \
