@@ -22,6 +22,10 @@ if test -d $HOME/.nodebrew
     set -x PATH  $HOME/.nodebrew/current/bin $PATH
 end
 
+if test -d /usr/local/lib
+    set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
+end
+
 # display setting
 if test -d /mnt/c
     and test -z $DISPLAY
