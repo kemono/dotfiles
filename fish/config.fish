@@ -68,7 +68,7 @@ alias gpms 'g push origin master; gf'
 ##                             Alias (Emacs)
 ## ------------------------------------------------------------------------
 
-alias ec    'emacsclient -nw -a ""'
+alias ec    'emacs-launcher'
 alias ek    'emacsclient -e "(kill-emacs)"'
 alias emacs 'ec'
 
