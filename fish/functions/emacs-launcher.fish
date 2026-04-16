@@ -1,13 +1,14 @@
-# Function to launch Emacs with automatic mode selection based on environment
+# Function to launch Emacs with automatic mode selection and maximization
 function emacs-launcher
+    # Capture all arguments passed to the function (e.g., filenames)
+    set -l args $argv
+
     # Check if DISPLAY environment variable is set
-    # If set: launch GUI mode (X11 or WSLg)
-    # If not set: launch CLI mode (-nw)
     if set -q DISPLAY
         # GUI launch (X11 or WSLg)
-        emacsclient -c -a ""
+        emacsclient -c -F '((fullscreen . maximized))' -a "" $args
     else
         # CLI launch (within terminal)
-        emacsclient -nw -a ""
+        emacsclient -nw -a "" $args
     end
 end
