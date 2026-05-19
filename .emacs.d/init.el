@@ -293,6 +293,26 @@ cloned and the function is a no-op."
   (add-hook 'go-mode-hook #'company-go-init))
 
 ;; ------------------------------------------------------------------------
+;;                                Maxima
+;; ------------------------------------------------------------------------
+
+(use-package maxima
+  :mode ("\\.mac\\'" . maxima-mode)
+  :commands (maxima maxima-mode imaxima)
+  :config
+  ;; Dynamically find the maxima executable path (e.g., C:/maxima-5.48.1/...)
+  (let ((maxima-paths (file-expand-wildcards "C:/maxima-*/bin/maxima.bat")))
+    (if maxima-paths
+        ;; If found, sort alphabetically and pick the last one (latest version)
+        (setq maxima-command (car (last (sort maxima-paths #'string<))))
+      ;; Fallback to system PATH if not found in C:/
+      (setq maxima-command "maxima.bat")))
+
+  ;; Enable company-mode in maxima-mode and its REPL for completion
+  (add-hook 'maxima-mode-hook #'company-mode)
+  (add-hook 'maxima-inferior-mode-hook #'company-mode))
+
+;; ------------------------------------------------------------------------
 ;;                        Other Programming Language
 ;; ------------------------------------------------------------------------
 
