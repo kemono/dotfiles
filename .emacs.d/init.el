@@ -300,13 +300,18 @@ cloned and the function is a no-op."
   :mode ("\\.mac\\'" . maxima-mode)
   :commands (maxima maxima-mode imaxima)
   :config
-  ;; Dynamically find the maxima executable path (e.g., C:/maxima-5.48.1/...)
-  (let ((maxima-paths (file-expand-wildcards "C:/maxima-*/bin/maxima.bat")))
-    (if maxima-paths
-        ;; If found, sort alphabetically and pick the last one (latest version)
-        (setq maxima-command (car (last (sort maxima-paths #'string<))))
-      ;; Fallback to system PATH if not found in C:/
-      (setq maxima-command "maxima.bat")))
+  ;; Set the maxima executable command depending on the OS
+  (cond
+   ((is-windows)
+    (let ((maxima-paths (file-expand-wildcards "C:/maxima-*/bin/maxima.bat")))
+      (if maxima-paths
+          ;; Use the latest version found in C:/ drive
+          (setq maxima-command (car (last (sort maxima-paths #'string<))))
+        ;; Fallback to system PATH if not found
+        (setq maxima-command "maxima.bat"))))
+   ((is-linux)
+    ;; In Debian/Linux, maxima is usually available via standard PATH
+    (setq maxima-command "maxima")))
 
   ;; Enable company-mode in maxima-mode and its REPL for completion
   (add-hook 'maxima-mode-hook #'company-mode)

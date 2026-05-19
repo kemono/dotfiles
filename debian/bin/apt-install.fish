@@ -63,6 +63,7 @@ set install_packages \
     lolcat \
     lynx \
     make \
+    maxima \
     mpv \
     nbtscan \
     ncrack \

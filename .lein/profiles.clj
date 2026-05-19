@@ -1,3 +1,3 @@
 {:user
  {:plugins
-  [[lein-ancient "0.7.0"]]}}
+  [[lein-ancient "1.0.0"]]}}
