@@ -66,3 +66,5 @@ var
 workspace
 eln-cache
 /github-packages/
+/projects
+/transient

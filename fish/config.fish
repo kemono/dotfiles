@@ -124,8 +124,8 @@ alias sangetsuki      'reading-novel https://www.aozora.gr.jp/cards/000119/files
 ##                              Alias (Othre)
 ## ------------------------------------------------------------------------
 
-alias sl       'ls'
-alias l        'ls -AbFhlopX --time-style="+%m/%d %H:%M" -r'
+alias sl 'ls'
+alias l  'ls -AbFhlopX -D "%m/%d %H:%M" -r'
 
 alias jnethack "~/nh/install/games/jnethack"
 alias parrot   "curl parrot.live"
