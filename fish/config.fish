@@ -84,7 +84,7 @@ alias fnaf-4  'play-movie YREhVveHq9k'
 alias fnaf-sl 'play-movie kXMwZNRiPe0'
 
 # music video
-alias beep-beep       'play-movie wCZFISvHmyY'
+alias beep-beep       'play-movie cjTugPleGow'
 alias bna-ed          'play-movie WWTFfEnMCCc'
 alias bna-op          'play-movie 3Okzra8Anr4'
 alias chosen          'play-movie aJgOdZN4HcA'
