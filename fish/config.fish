@@ -119,6 +119,7 @@ alias kokushikan      'reading-novel https://www.aozora.gr.jp/cards/000125/files
 alias poison          'reading-novel https://www.aozora.gr.jp/cards/000081/files/454_42329.html'
 alias purchase-glove  'reading-novel https://www.aozora.gr.jp/cards/000121/files/637_13341.html'
 alias sangetsuki      'reading-novel https://www.aozora.gr.jp/cards/000119/files/624_14544.html'
+alias lotm            'reading-novel https://www.aozora.gr.jp/cards/000119/files/621_14498.html'
 
 ## ------------------------------------------------------------------------
 ##                              Alias (Othre)
